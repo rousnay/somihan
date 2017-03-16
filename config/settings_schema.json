@@ -1,0 +1,1606 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Showcase",
+    "theme_author": "Clean Themes",
+    "theme_version": "2.0.2",
+    "theme_documentation_url": "http:\/\/cleanthemes.co.uk\/support\/showcase\/",
+    "theme_support_url": "http:\/\/cleanthemes.co.uk\/support\/showcase\/"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "col_text",
+        "label": "Text"
+      },
+      {
+        "type": "color",
+        "id": "col_headings",
+        "label": "Headings"
+      },
+      {
+        "type": "color",
+        "id": "col_links",
+        "label": "Links"
+      },
+      {
+        "type": "color",
+        "id": "col_mod_bg",
+        "label": "Modal \/ popup window background",
+        "default": "#000"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_mod_bg_op",
+        "label": "Use transparency for modal \/ popup window background",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "col_content_bg",
+        "label": "Background for text areas"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_content_bg_trans",
+        "label": "Use transparency on text background",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "id": "col_head_links",
+        "label": "Icons",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "col_head_links_alt",
+        "label": "Alternate icon color",
+        "default": "#ffffff",
+        "info": "Used in menu, over home page slideshow, and over product gallery (if enabled)"
+      },
+      {
+        "type": "header",
+        "content": "Navigation text"
+      },
+      {
+        "type": "color",
+        "id": "col_nav_prim",
+        "label": "Primary",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "col_nav_sec",
+        "label": "Subnavigation",
+        "default": "#e3e0e1"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "color",
+        "id": "col_btn",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "col_btn_bg",
+        "label": "Background",
+        "default": "#8a7676"
+      },
+      {
+        "type": "header",
+        "content": "Dropdowns"
+      },
+      {
+        "type": "color",
+        "id": "col_select_bg",
+        "label": "Background",
+        "default": "#e0d8d5"
+      },
+      {
+        "type": "color",
+        "id": "col_select_txt",
+        "label": "Text",
+        "default": "#61523d"
+      },
+      {
+        "type": "header",
+        "content": "Product labels"
+      },
+      {
+        "type": "color",
+        "id": "prod_label_col",
+        "label": "Background",
+        "default": "#ff5555"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "footer_text",
+        "label": "Text",
+        "default": "#464654"
+      },
+      {
+        "type": "color",
+        "id": "footer_background",
+        "label": "Background",
+        "default": "#f7f7f7"
+      },
+      {
+        "type": "header",
+        "content": "Page background"
+      },
+      {
+        "type": "color",
+        "id": "col_page_bg",
+        "label": "Color"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "bg_image_method",
+        "label": "Repeat",
+        "options": [
+          {
+            "value": "fill",
+            "label": "Fill space"
+          },
+          {
+            "value": "repeat top center",
+            "label": "Tiled vertically + horizontally"
+          },
+          {
+            "value": "repeat-x top center",
+            "label": "Aligned to top, tiled horizontally"
+          },
+          {
+            "value": "repeat-y top center",
+            "label": "Aligned to center, tiled vertically"
+          },
+          {
+            "value": "no-repeat top center",
+            "label": "Aligned to top, centered, no tiling"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font families"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_base",
+        "label": "Base",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "label": "Droid Sans",
+            "value": "GWF|Droid+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Karla",
+            "value": "GWF|Karla|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Lato",
+            "value": "GWF|Lato|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Montserrat",
+            "value": "GWF|Montserrat|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Open Sans",
+            "value": "GWF|Open+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Oswald",
+            "value": "GWF|Oswald|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "PT Sans",
+            "value": "GWF|PT+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Quantico",
+            "value": "GWF|Quantico|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Raleway",
+            "value": "GWF|Raleway|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto",
+            "value": "GWF|Roboto|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Condensed",
+            "value": "GWF|Roboto+Condensed|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Mono",
+            "value": "GWF|Roboto+Mono|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light",
+            "value": "GWF|Shadows+Into+Light|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light Two",
+            "value": "GWF|Shadows+Into+Light+Two|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Source Sans Pro",
+            "value": "GWF|Source+Sans+Pro|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Ubuntu",
+            "value": "GWF|Ubuntu|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Unica One",
+            "value": "GWF|Unica+One|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Work Sans",
+            "value": "GWF|Work+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Abril Fatface",
+            "value": "GWF|Abril+Fatface|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Alegreya",
+            "value": "GWF|Alegreya|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arapey",
+            "value": "GWF|Arapey|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arvo",
+            "value": "GWF|Arvo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Bitter",
+            "value": "GWF|Bitter|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Cardo",
+            "value": "GWF|Cardo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Crimson Text",
+            "value": "GWF|Crimson+Text|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Droid Serif",
+            "value": "GWF|Droid+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Lora",
+            "value": "GWF|Lora|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Merriweather",
+            "value": "GWF|Merriweather|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Old Standard TT",
+            "value": "GWF|Old+Standard+TT|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display",
+            "value": "GWF|Playfair+Display|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "PT Serif",
+            "value": "GWF|PT+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Roboto Slab",
+            "value": "GWF|Roboto+Slab|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Special Elite",
+            "value": "GWF|Special+Elite|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Vollkorn",
+            "value": "GWF|Vollkorn|400",
+            "group": "Serif | Google Web fonts"
+          }
+        ],
+        "default": "GWF|Karla|400"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_headings",
+        "label": "Headings",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "label": "Droid Sans",
+            "value": "GWF|Droid+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Droid Sans Bold",
+            "value": "GWF|Droid+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Karla",
+            "value": "GWF|Karla|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Karla Bold",
+            "value": "GWF|Karla|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Lato",
+            "value": "GWF|Lato|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Lato Bold",
+            "value": "GWF|Lato|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Montserrat",
+            "value": "GWF|Montserrat|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Montserrat Bold",
+            "value": "GWF|Montserrat|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Open Sans",
+            "value": "GWF|Open+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Open Sans Bold",
+            "value": "GWF|Open+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Oswald",
+            "value": "GWF|Oswald|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "PT Sans",
+            "value": "GWF|PT+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "PT Sans Bold",
+            "value": "GWF|PT+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Quantico",
+            "value": "GWF|Quantico|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Quantico Bold",
+            "value": "GWF|Quantico|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Raleway",
+            "value": "GWF|Raleway|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Raleway Bold",
+            "value": "GWF|Raleway|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto",
+            "value": "GWF|Roboto|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Bold",
+            "value": "GWF|Roboto|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Condensed",
+            "value": "GWF|Roboto+Condensed|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Condensed Bold",
+            "value": "GWF|Roboto+Condensed|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Mono",
+            "value": "GWF|Roboto+Mono|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Mono Bold",
+            "value": "GWF|Roboto+Mono|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light",
+            "value": "GWF|Shadows+Into+Light|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light Two",
+            "value": "GWF|Shadows+Into+Light+Two|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Source Sans Pro",
+            "value": "GWF|Source+Sans+Pro|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Source Sans Pro Bold",
+            "value": "GWF|Source+Sans+Pro|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Ubuntu",
+            "value": "GWF|Ubuntu|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Ubuntu Bold",
+            "value": "GWF|Ubuntu|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Unica One",
+            "value": "GWF|Unica+One|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Work Sans",
+            "value": "GWF|Work+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Work Sans Semi-Bold",
+            "value": "GWF|Work+Sans|600",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Abril Fatface",
+            "value": "GWF|Abril+Fatface|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Alegreya",
+            "value": "GWF|Alegreya|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Alegreya Bold",
+            "value": "GWF|Alegreya|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arapey",
+            "value": "GWF|Arapey|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arvo",
+            "value": "GWF|Arvo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arvo Bold",
+            "value": "GWF|Arvo|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Bitter",
+            "value": "GWF|Bitter|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Bitter Bold",
+            "value": "GWF|Bitter|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Cardo",
+            "value": "GWF|Cardo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Cardo Bold",
+            "value": "GWF|Cardo|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Crimson Text",
+            "value": "GWF|Crimson+Text|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Crimson Text Bold",
+            "value": "GWF|Crimson+Text|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Droid Serif",
+            "value": "GWF|Droid+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Droid Serif Bold",
+            "value": "GWF|Droid+Serif|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Lora",
+            "value": "GWF|Lora|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Lora Bold",
+            "value": "GWF|Lora|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Merriweather",
+            "value": "GWF|Merriweather|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Merriweather Bold",
+            "value": "GWF|Merriweather|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Old Standard TT",
+            "value": "GWF|Old+Standard+TT|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Old Standard TT Bold",
+            "value": "GWF|Old+Standard+TT|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display",
+            "value": "GWF|Playfair+Display|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display Bold",
+            "value": "GWF|Playfair+Display|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display Black",
+            "value": "GWF|Playfair+Display|900",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "PT Serif",
+            "value": "GWF|PT+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "PT Serif Bold",
+            "value": "GWF|PT+Serif|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Roboto Slab",
+            "value": "GWF|Roboto+Slab|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Roboto Slab Bold",
+            "value": "GWF|Roboto+Slab|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Special Elite",
+            "value": "GWF|Special+Elite|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Vollkorn",
+            "value": "GWF|Vollkorn|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Vollkorn Bold",
+            "value": "GWF|Vollkorn|700",
+            "group": "Serif | Google Web fonts"
+          }
+        ],
+        "default": "GWF|Karla|400"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_nav",
+        "label": "Navigation",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "label": "Droid Sans",
+            "value": "GWF|Droid+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Droid Sans Bold",
+            "value": "GWF|Droid+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Karla",
+            "value": "GWF|Karla|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Karla Bold",
+            "value": "GWF|Karla|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Lato",
+            "value": "GWF|Lato|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Lato Bold",
+            "value": "GWF|Lato|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Montserrat",
+            "value": "GWF|Montserrat|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Montserrat Bold",
+            "value": "GWF|Montserrat|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Open Sans",
+            "value": "GWF|Open+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Open Sans Bold",
+            "value": "GWF|Open+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Oswald",
+            "value": "GWF|Oswald|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "PT Sans",
+            "value": "GWF|PT+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "PT Sans Bold",
+            "value": "GWF|PT+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Quantico",
+            "value": "GWF|Quantico|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Quantico Bold",
+            "value": "GWF|Quantico|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Raleway",
+            "value": "GWF|Raleway|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Raleway Bold",
+            "value": "GWF|Raleway|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto",
+            "value": "GWF|Roboto|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Bold",
+            "value": "GWF|Roboto|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Condensed",
+            "value": "GWF|Roboto+Condensed|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Condensed Bold",
+            "value": "GWF|Roboto+Condensed|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Mono",
+            "value": "GWF|Roboto+Mono|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Mono Bold",
+            "value": "GWF|Roboto+Mono|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light",
+            "value": "GWF|Shadows+Into+Light|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light Two",
+            "value": "GWF|Shadows+Into+Light+Two|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Source Sans Pro",
+            "value": "GWF|Source+Sans+Pro|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Source Sans Pro Bold",
+            "value": "GWF|Source+Sans+Pro|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Ubuntu",
+            "value": "GWF|Ubuntu|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Ubuntu Bold",
+            "value": "GWF|Ubuntu|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Unica One",
+            "value": "GWF|Unica+One|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Work Sans",
+            "value": "GWF|Work+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Work Sans Semi-Bold",
+            "value": "GWF|Work+Sans|600",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Abril Fatface",
+            "value": "GWF|Abril+Fatface|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Alegreya",
+            "value": "GWF|Alegreya|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Alegreya Bold",
+            "value": "GWF|Alegreya|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arapey",
+            "value": "GWF|Arapey|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arvo",
+            "value": "GWF|Arvo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arvo Bold",
+            "value": "GWF|Arvo|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Bitter",
+            "value": "GWF|Bitter|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Bitter Bold",
+            "value": "GWF|Bitter|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Cardo",
+            "value": "GWF|Cardo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Cardo Bold",
+            "value": "GWF|Cardo|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Crimson Text",
+            "value": "GWF|Crimson+Text|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Crimson Text Bold",
+            "value": "GWF|Crimson+Text|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Droid Serif",
+            "value": "GWF|Droid+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Droid Serif Bold",
+            "value": "GWF|Droid+Serif|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Lora",
+            "value": "GWF|Lora|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Lora Bold",
+            "value": "GWF|Lora|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Merriweather",
+            "value": "GWF|Merriweather|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Merriweather Bold",
+            "value": "GWF|Merriweather|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Old Standard TT",
+            "value": "GWF|Old+Standard+TT|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Old Standard TT Bold",
+            "value": "GWF|Old+Standard+TT|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display",
+            "value": "GWF|Playfair+Display|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display Bold",
+            "value": "GWF|Playfair+Display|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display Black",
+            "value": "GWF|Playfair+Display|900",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "PT Serif",
+            "value": "GWF|PT+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "PT Serif Bold",
+            "value": "GWF|PT+Serif|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Roboto Slab",
+            "value": "GWF|Roboto+Slab|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Roboto Slab Bold",
+            "value": "GWF|Roboto+Slab|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Special Elite",
+            "value": "GWF|Special+Elite|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Vollkorn",
+            "value": "GWF|Vollkorn|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Vollkorn Bold",
+            "value": "GWF|Vollkorn|700",
+            "group": "Serif | Google Web fonts"
+          }
+        ],
+        "default": "GWF|Karla|400"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_logo",
+        "label": "Store name",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "label": "Droid Sans",
+            "value": "GWF|Droid+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Droid Sans Bold",
+            "value": "GWF|Droid+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Karla",
+            "value": "GWF|Karla|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Karla Bold",
+            "value": "GWF|Karla|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Lato",
+            "value": "GWF|Lato|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Lato Bold",
+            "value": "GWF|Lato|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Montserrat",
+            "value": "GWF|Montserrat|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Montserrat Bold",
+            "value": "GWF|Montserrat|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Open Sans",
+            "value": "GWF|Open+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Open Sans Bold",
+            "value": "GWF|Open+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Oswald",
+            "value": "GWF|Oswald|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "PT Sans",
+            "value": "GWF|PT+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "PT Sans Bold",
+            "value": "GWF|PT+Sans|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Quantico",
+            "value": "GWF|Quantico|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Quantico Bold",
+            "value": "GWF|Quantico|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Raleway",
+            "value": "GWF|Raleway|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Raleway Bold",
+            "value": "GWF|Raleway|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto",
+            "value": "GWF|Roboto|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Bold",
+            "value": "GWF|Roboto|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Condensed",
+            "value": "GWF|Roboto+Condensed|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Condensed Bold",
+            "value": "GWF|Roboto+Condensed|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Mono",
+            "value": "GWF|Roboto+Mono|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Roboto Mono Bold",
+            "value": "GWF|Roboto+Mono|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light",
+            "value": "GWF|Shadows+Into+Light|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Shadows Into Light Two",
+            "value": "GWF|Shadows+Into+Light+Two|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Source Sans Pro",
+            "value": "GWF|Source+Sans+Pro|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Source Sans Pro Bold",
+            "value": "GWF|Source+Sans+Pro|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Ubuntu",
+            "value": "GWF|Ubuntu|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Ubuntu Bold",
+            "value": "GWF|Ubuntu|700",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Unica One",
+            "value": "GWF|Unica+One|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Work Sans",
+            "value": "GWF|Work+Sans|400",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Work Sans Semi-Bold",
+            "value": "GWF|Work+Sans|600",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "label": "Abril Fatface",
+            "value": "GWF|Abril+Fatface|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Alegreya",
+            "value": "GWF|Alegreya|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Alegreya Bold",
+            "value": "GWF|Alegreya|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arapey",
+            "value": "GWF|Arapey|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arvo",
+            "value": "GWF|Arvo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Arvo Bold",
+            "value": "GWF|Arvo|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Bitter",
+            "value": "GWF|Bitter|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Bitter Bold",
+            "value": "GWF|Bitter|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Cardo",
+            "value": "GWF|Cardo|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Cardo Bold",
+            "value": "GWF|Cardo|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Crimson Text",
+            "value": "GWF|Crimson+Text|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Crimson Text Bold",
+            "value": "GWF|Crimson+Text|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Droid Serif",
+            "value": "GWF|Droid+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Droid Serif Bold",
+            "value": "GWF|Droid+Serif|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Lora",
+            "value": "GWF|Lora|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Lora Bold",
+            "value": "GWF|Lora|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Merriweather",
+            "value": "GWF|Merriweather|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Merriweather Bold",
+            "value": "GWF|Merriweather|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Old Standard TT",
+            "value": "GWF|Old+Standard+TT|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Old Standard TT Bold",
+            "value": "GWF|Old+Standard+TT|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display",
+            "value": "GWF|Playfair+Display|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display Bold",
+            "value": "GWF|Playfair+Display|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Playfair Display Black",
+            "value": "GWF|Playfair+Display|900",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "PT Serif",
+            "value": "GWF|PT+Serif|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "PT Serif Bold",
+            "value": "GWF|PT+Serif|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Roboto Slab",
+            "value": "GWF|Roboto+Slab|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Roboto Slab Bold",
+            "value": "GWF|Roboto+Slab|700",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Special Elite",
+            "value": "GWF|Special+Elite|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Vollkorn",
+            "value": "GWF|Vollkorn|400",
+            "group": "Serif | Google Web fonts"
+          },
+          {
+            "label": "Vollkorn Bold",
+            "value": "GWF|Vollkorn|700",
+            "group": "Serif | Google Web fonts"
+          }
+        ],
+        "default": "GWF|Karla|400",
+        "info": "If not using a logo image"
+      },
+      {
+        "type": "header",
+        "content": "Font sizes"
+      },
+      {
+        "type": "select",
+        "id": "font_size_base",
+        "label": "Base",
+        "options": [
+          {
+            "value": "13",
+            "label": "13px"
+          },
+          {
+            "value": "14",
+            "label": "14px"
+          },
+          {
+            "value": "15",
+            "label": "15px"
+          },
+          {
+            "value": "16",
+            "label": "16px"
+          },
+          {
+            "value": "17",
+            "label": "17px"
+          },
+          {
+            "value": "18",
+            "label": "18px"
+          },
+          {
+            "value": "19",
+            "label": "19px"
+          },
+          {
+            "value": "20",
+            "label": "20px"
+          }
+        ],
+        "default": "16"
+      },
+      {
+        "type": "select",
+        "id": "font_size_nav",
+        "label": "Navigation",
+        "options": [
+          {
+            "value": "20",
+            "label": "20px"
+          },
+          {
+            "value": "30",
+            "label": "30px"
+          },
+          {
+            "value": "40",
+            "label": "40px"
+          },
+          {
+            "value": "50",
+            "label": "50px"
+          },
+          {
+            "value": "60",
+            "label": "60px"
+          }
+        ],
+        "default": "40"
+      },
+      {
+        "type": "select",
+        "id": "font_size_nav_sub",
+        "label": "Subnavigation",
+        "options": [
+          {
+            "value": "20",
+            "label": "20px"
+          },
+          {
+            "value": "25",
+            "label": "25px"
+          },
+          {
+            "value": "30",
+            "label": "30px"
+          },
+          {
+            "value": "35",
+            "label": "35px"
+          }
+        ],
+        "default": "25"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Your social media links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_url",
+        "label": "Twitter",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_url",
+        "label": "Facebook",
+        "info": "https:\/\/facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_url",
+        "label": "Pinterest",
+        "info": "https:\/\/pinterest.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_url",
+        "label": "Tumblr",
+        "info": "https:\/\/shopify.tumblr.com"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_url",
+        "label": "Vimeo",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_url",
+        "label": "Youtube",
+        "info": "https:\/\/youtube.com\/user\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_url",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_google_url",
+        "label": "Google Plus",
+        "info": "https:\/\/plus.google.com\/+shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_rss_url",
+        "label": "RSS",
+        "info": "https:\/\/myblog.com\/feed.rss"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Image",
+        "info": "32 x 32px .png recommended"
+      }
+    ]
+  },
+  {
+    "name": "Currency",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "To offer multiple currencies on your online store, you must first [edit your store's currency formatting](https:\/\/docs.shopify.com\/support\/settings\/general\/tell-my-script-where-to-find-money-formats)."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_multiple_currencies",
+        "label": "Enable currency conversion",
+        "default": true,
+        "info": "Even though prices are displayed in different currencies, orders will still be processed in your store's currency."
+      },
+      {
+        "type": "select",
+        "id": "currency_format",
+        "label": "Format",
+        "options": [
+          {
+            "value": "money_format",
+            "label": "Without currency ($10.00)"
+          },
+          {
+            "value": "money_with_currency_format",
+            "label": "With currency ($10.00 CAD)"
+          }
+        ],
+        "default": "money_with_currency_format"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies",
+        "label": "Supported currencies",
+        "default": "INR GBP CAD USD AUD EUR JPY",
+        "info": "Use the country's ISO [currency code](http:\/\/www.xe.com\/iso4217.php). Separate your currency codes with a space."
+      },
+      {
+        "type": "text",
+        "id": "default_currency",
+        "label": "Default currency",
+        "default": "USD"
+      }
+    ]
+  }
+]

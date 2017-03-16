@@ -1,0 +1,162 @@
+<div class="central content" data-section-type="cart-template">
+  <h1>{{ 'cart.general.title' | t }}</h1>
+  
+  {% if cart.item_count > 0 %}
+  
+  <form action="/cart" method="post" id="cartform">
+    
+    <ul class="cart-list clearfix">
+      
+      {% for item in cart.items %}    
+      
+      {% comment %}
+      Determining the handle of the collection that was last seen for the 'continue shopping' link.
+      {% endcomment %}
+      
+      {% if forloop.first %}
+      {% capture collection_url %}{{ item.product.collections.first.url }}{% endcapture %}
+      {% if collection_url == empty or collection_url == '/collections/frontpage' %}{% assign collection_url = '/collections/all' %}{% endif %}
+      {% endif %}
+      
+      <li class="item clearfix">
+        <div class="col-desc">
+          <a class="image" href="{{ item.url }}">  
+            <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" />
+          </a>
+          <div class="text">
+            <div class="title">
+              <a href="{{ item.url }}">
+                {{ item.product.title }}<br/>
+                {% unless item.variant.title contains 'Default' %}{{ item.variant.title }}{% endunless %}
+              </a>
+            </div>
+            {% comment %}
+            Line Item Properties
+            {% endcomment %}
+            {% if item.properties.size > 0 %}
+            <div class="line-items">
+              {% for p in item.properties %}
+              {% unless p.last == blank %}
+              {{ p.first }}:
+              {% if p.last contains '/uploads/' %}
+              <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+              {% else %}
+              {{ p.last }}
+              {% endif %}
+              <br />
+              {% endunless %}
+              {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if item.variant.inventory_management == 'shopify' and item.variant.inventory_quantity < 1 %}
+            <div class="backorder">
+              <p>{{ 'cart.general.backorder' | t }}</p>
+            </div>
+            {% endif %}
+
+            <div class="price"><span class="theme-money">{{ item.price | money }}</span></div>
+          </div>
+        </div>
+        <div class="col-notdesc">
+          <span class="quantity">
+            <a class="minus" href="/cart/change?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}"><span>-</span></a>
+            <input class="select-on-focus" type="text" size="2" id="updates_{{ item.id }}" name="updates[]" value="{{ item.quantity }}" />
+            <a class="plus" href="/cart/change?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}"><span>+</span></a>
+          </span>
+          <a class="remove" href="/cart/change?line={{ forloop.index }}&quantity=0">{% include 'svg-close' %}</a>
+        </div>
+      </li>
+      {% endfor %}
+      
+    </ul>
+    
+    <div class="update-continue">
+      <input class="update textbutton" type="submit" name="update" value="{{ 'cart.general.update' | t | escape }}" />
+      <span>|</span>
+      <a class="continue" href="{{ collection_url }}">{{ 'cart.general.continue' | t }}</a>
+    </div>
+    
+    <div class="under-cart">
+      <div class="subtotal">
+        <span class="label">{{ 'cart.label.subtotal' | t }}</span>
+        <span class="amount theme-money">{{ cart.total_price | money }}</span>
+      </div>
+      
+      {% if section.settings.cart_note_show %}
+      <p class="note-area">
+        <label for="note">{{ 'cart.label.note' | t }}</label>
+        <textarea id="note" name="note">{{ cart.note }}</textarea>
+      </p>
+      {% endif %}
+      
+      {% if section.settings.cart_terms_show %}
+      <p class="terms rte">
+        <input type="checkbox" id="terms" />
+        {% assign terms_url = pages[section.settings.cart_terms_page].url %}
+        {% capture terms_label_html %}<label for="terms">{{ 'cart.terms.agreement_html' | t: terms_url: terms_url }}</label>{% endcapture %}
+        {% if section.settings.cart_terms_page == blank %}
+        {{ terms_label_html | replace: '<a ', '<span ' | replace: '</a>', '</span>' }}
+        {% else %}
+        {{ terms_label_html }}
+        {% endif %}
+      </p>
+      {% endif %}
+      
+      {% if settings.show_multiple_currencies %}
+      <p class="comment rte currency-different">
+        {{ 'cart.multi_currency.notice_html' | t: shop_name: shop.name, shop_currency: shop.currency, selected_currency: '<strong class="selected-currency"></strong>' }}
+      </p>
+      {% endif %}
+      
+      <input type="submit" class="checkout-btn" name="checkout" value="{{ 'cart.general.checkout' | t | escape }}" />    
+      
+      {% comment %}Paypal and Google checkout buttons{% endcomment %}
+      {% if additional_checkout_buttons %}
+      <p class="additional-checkout-buttons">
+        {{ content_for_additional_checkout_buttons }}
+      </p>
+      {% endif %}
+      
+      <p class="comment">{{ 'cart.general.message' | t }}</p>
+    </div>
+    
+  </form>
+  
+  {% else %}
+  
+  <div>
+    <h2>{{ 'cart.general.empty' | t }}</h2>
+    <div class="rte">
+      <p class="align-center">{{ 'cart.general.continue_browsing_html' | t }}</p>
+    </div>
+  </div>
+  
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_terms_show",
+        "label": "Show Terms and Conditions checkbox",
+		"default": false
+      },
+      {
+        "type": "page",
+        "id": "cart_terms_page",
+        "label": "Page for Terms and Conditions link"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_note_show",
+        "label": "Enable order notes",
+		"default": true
+      }
+	]
+  }
+{% endschema %}

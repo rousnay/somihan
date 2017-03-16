@@ -1,0 +1,80 @@
+<section class="section-spacing instagram-section" data-section-type="instagram">
+  <div class="align-center">
+    <h1 class="section-title">{{ section.settings.title }}</h1>
+    {% if section.settings.account != blank %}
+    <span class="follow">
+      <a href="https://instagram.com/{{ section.settings.account | remove: '@' }}" class="hash-link" target="_blank">@{{ section.settings.account | remove: '@' }}</a>
+    </span>
+    {% endif %}
+  </div>
+
+  {% assign item_count = section.settings.row_count | times: 5 %}
+
+  {% unless section.settings.access_token == blank %}
+
+  <div class="willstagram willstagram--rows-{{ section.settings.row_count }}" data-user_id="self" data-count="{{ item_count }}" data-access_token="{{ section.settings.access_token }}"></div>
+
+  {% else %}
+
+  <div class="willstagram willstagram-placeholder">
+    <ul class="items">
+      {% for i in (1..item_count) %}<li class="item">
+      <div class="placeholder-image">{{ 'image' | placeholder_svg_tag }}</div>
+      </li>{% endfor %}
+    </ul>
+  </div>
+
+  {% endunless %}
+</section>
+
+
+{% schema %}
+  {
+    "name": "Instagram feed",
+	"class": "homepage-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+		"default": "Instagram feed"
+      },
+	  {
+        "type": "text",
+        "id": "account",
+        "label": "Account name"
+      },
+      {
+        "type": "text",
+        "id": "access_token",
+        "label": "Access token",
+        "info": "Required - [get your access token](http:\/\/cleanthemes.co.uk\/pages\/instagram-integration)"
+      },
+	  {
+        "type": "select",
+        "id": "row_count",
+        "label": "Rows",
+		"default": "1",
+		"options": [
+          {
+			"label": "1",
+			"value": "1"
+          },
+          {
+			"label": "2",
+			"value": "2"
+          }
+		]
+      }
+	],
+	"presets": [
+	  {
+		"name": "Instagram feed",
+        "category": "Social media",
+        "settings": {
+        }
+	  }
+	]
+  }
+{% endschema %}
+

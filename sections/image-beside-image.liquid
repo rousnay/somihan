@@ -1,0 +1,79 @@
+<div class="image-beside-image cf">
+  
+  <div class="image-beside-image__image">
+    {% if section.settings.left_url != blank %}
+    <a href="{{ section.settings.left_url }}">
+      {% endif %}
+
+      {% if section.settings.left_image == blank %}
+      <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {% else %}
+      <img src="{{ section.settings.left_image | img_url: '1024x' }}" alt="{{ section.settings.left_image.alt | escape }}" />
+      {% endif %}
+
+      {% if section.settings.left_url != blank %}
+    </a>
+    {% endif %}
+  </div>
+  
+  <div class="image-beside-image__image">
+    {% if section.settings.right_url != blank %}
+    <a href="{{ section.settings.right_url }}">
+      {% endif %}
+
+      {% if section.settings.right_image == blank %}
+      <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {% else %}
+      <img src="{{ section.settings.right_image | img_url: '1024x' }}" alt="{{ section.settings.right_image.alt | escape }}" />
+      {% endif %}
+
+      {% if section.settings.right_url != blank %}
+    </a>
+    {% endif %}
+  </div>
+  
+</div>
+
+
+{% schema %}
+  {
+    "name": "Two images",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Left"
+      },
+      {
+        "type": "image_picker",
+        "id": "left_image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "left_url",
+        "label": "Link"
+      },
+	  {
+        "type": "header",
+        "content": "Right"
+      },
+      {
+        "type": "image_picker",
+        "id": "right_image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "right_url",
+        "label": "Link"
+      }
+	],
+	"presets": [
+	  {
+		"name": "Two images",
+        "category": "Image",
+        "settings": {}
+	  }
+	]
+  }
+{% endschema %}

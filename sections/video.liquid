@@ -1,0 +1,43 @@
+<div class="{% if section.settings.full_width == false %}section-spacing wide-container{% endif %}" data-section-type="video">
+  {% if section.settings.video_url != blank %}
+  <div class="video-container" data-video-id="{{ section.settings.video_url.id }}" data-video-type="{{ section.settings.video_url.type }}" data-video-autoplay="{{ section.settings.autoplay }}"></div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Featured video",
+    "settings": [
+      {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["youtube", "vimeo"],
+		"info": "Supports Youtube and Vimeo",
+        "default": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+      },
+      {
+        "id": "autoplay",
+        "type": "checkbox",
+        "label": "Autoplay",
+		"default": false
+      },
+      {
+        "id": "full_width",
+        "type": "checkbox",
+        "label": "Full page width",
+		"default": false
+      }
+	],
+	"presets": [
+	  {
+		"name": "Featured video",
+        "category": "Video",
+        "settings": {
+		  "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+        }
+	  }
+	]
+  }
+{% endschema %}

@@ -1,0 +1,80 @@
+<div class="central content" data-section-type="blog-template">
+  {% paginate blog.articles by 6 %}
+  
+  {% if current_tags %}
+  <h1><a href="{{ blog.url }}">{{ blog.title | link_to: blog.url }}</a> / {{ current_tags.first }}</h1>
+  {% else %}
+  <h1>{{ blog.title }} <a class="rsslink" href="{{ blog.url }}.atom" title="{{ blog.title | escape }} RSS">{% include 'svg-rss' %}</a></h1>
+  {% endif %}
+  
+
+  {% if blog.all_tags.size > 0 %}
+  <div class="option align-center">
+    <label for="filter-by">{{ 'blogs.filtering.filter_by' | t }}</label> 
+    <select id="filter-by" class="redirecter">
+      <option value="{{ blog.url }}">{{ 'blogs.filtering.all' | t }}</option>
+      {% for tag in blog.all_tags %}
+      <option value="{{ blog.url }}/tagged/{{ tag | handle }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag | capitalize }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
+  
+  
+  <div class="articles">
+    
+    {% for article in blog.articles %}
+    <article class="article content-row">
+      {% if article.image %}
+      <div class="article-image no-side-pad">{{ article.image | img_url: '1024x' | img_tag: article.image.alt | link_to: article.url }}</div>
+      {% endif %}
+      
+      <h2 class="feature-header h1">
+        <a href="{{ article.url }}">{{ article.title }}</a>
+      </h2>
+      
+      <div class="meta">
+        <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_date_year' }}</time>
+        {% include 'social-sharing' with article %}
+      </div>
+
+      <div class="rte rte--allow-full-width-images">
+        {% if article.excerpt != blank %}
+          {{ article.excerpt }}
+        {% else %}
+          <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+        {% endif %}
+      </div>
+      <a class="blog-read-more" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+    </article>
+    
+    {% else %}
+    
+    <p class="align-centre"><em>{{ 'blogs.general.no_matches' | t }}</em></p>
+    {% endfor %}
+    
+  </div>
+  
+  {% if paginate.pages > 1 %}
+  <div class="pagination">
+    {% comment %}
+    When paginating blog articles, a previous article is actually a newer article, not an older one,
+    because blog articles are shown and paginated in a reversed chronological order.
+    The word 'previous' can be confusing, hence we'll change it.
+    {% endcomment %}
+    {% assign older_articles = 'blogs.pagination.older_articles' | t %}
+    {% assign newer_articles = 'blogs.pagination.newer_articles' | t %}
+    {{ paginate | default_pagination | replace: 'Previous', newer_articles | replace: 'Next', older_articles }}
+  </div>
+  {% endif %}
+  
+  {% endpaginate %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Blog pages",
+    "settings": []
+  }
+{% endschema %}

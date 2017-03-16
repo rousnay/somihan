@@ -1,0 +1,33 @@
+<div class="product-block collection-block caption-{{ section.settings.coll_captionmode }} {{ product_class }}" data-loop-index="{{forloop.index}}">
+  <div class="product-block__inner">
+    {% assign image_size = '1024x1024' %}
+
+    <div class="image">
+      <a class="image-inner" href="{{ collection.url }}">
+        {% if collection.image %}
+        <img src="{{ collection.image.src | collection_img_url: image_size }}" alt="{{ collection.image.alt | escape }}" />
+        {% else %}
+        <img src="{{ collection.products.first.featured_image.src | product_img_url: image_size }}" alt="{{ collection.title | escape }}" />
+        {% endif %}
+      </a>
+    </div>
+    <div class="caption middle">
+      <a href="{{ collection.url }}" class="title">{{ collection.title }}</a>
+    </div>
+    {% if collection.all_products_count > 0 %}
+    <div class="caption lower">
+      <a href="{{ collection.url }}" class="price">
+        {{ 'collections.general.product_count' | t: count: collection.all_products_count }}
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% if product_class contains 'quarter' %}
+{% cycle 'products': '','','','<div class="er"></div>' %}
+{% elsif product_class contains 'third' %}
+{% cycle 'products': '','','<div class="er"></div>' %}
+{% elsif product_class contains 'half' %}
+{% cycle 'products': '','<div class="er"></div>' %}
+{% endif %}

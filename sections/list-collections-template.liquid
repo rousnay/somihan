@@ -1,0 +1,98 @@
+<div class="wide-container double-gutter" data-section-type="list-collections">
+  {% if section.settings.coll_layout == 'rows' %}
+  {% if section.settings.coll_layout_per_row == "2" %}
+  {% assign product_class = 'column half' %}
+  {% elsif section.settings.coll_layout_per_row == "3" %}
+  {% assign product_class = 'column third' %}
+  {% else %}
+  {% assign product_class = 'column quarter' %}
+  {% endif %}
+  {% endif %}
+  
+  {% if template == 'page.list-collections' %}
+  <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row }}{% endif %}">
+    {% for link in linklists[page.handle].links %}
+    {% if link.type == 'collection_link' %}
+    {% assign collection = link.object %}
+    {% include 'collection-block' %}
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% else %}
+  
+  {% paginate collections by 26 %}
+  <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row }}{% endif %}">
+    {% for collection in collections limit: max_per_col %}
+    {% include 'collection-block' %}
+    {% endfor %}
+  </div>
+  
+  {% if paginate.pages > 1 %}
+  <div class="pagination">
+    {{ paginate | default_pagination }}
+  </div>
+  {% endif %}
+  {% endpaginate %}
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "settings": [
+      {
+        "type": "select",
+        "id": "coll_layout",
+        "label": "Collection layout",
+        "options": [
+          {
+            "value": "columns",
+            "label": "Collage"
+          },
+          {
+            "value": "rows",
+            "label": "Grid"
+          }
+        ],
+        "default": "columns"
+      },
+      {
+        "type": "select",
+        "id": "coll_layout_per_row",
+        "label": "Collections per row",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          }
+        ],
+        "default": "3"
+      },
+      {
+        "type": "select",
+        "id": "coll_captionmode",
+        "label": "Collection title layout",
+		"default": "over-hover",
+        "options": [
+          {
+            "value": "over-hover",
+            "label": "Overlay - on hover"
+          },
+          {
+            "value": "under",
+            "label": "Underneath the image"
+          }
+        ]
+      }
+	]
+  }
+{% endschema %}

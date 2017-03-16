@@ -1,0 +1,108 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <!-- Showcase 2.0.2 -->
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}" />
+  {% endif %}
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="{{ settings.col_btn_bg }}">
+  
+  {% if settings.favicon != blank and settings.favicon contains '.png' %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png" />
+  {% elsif settings.favicon != blank and settings.favicon contains '.ico' %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon" />
+  {% endif %}
+  
+  {% include 'google-fonts-import' %}
+  {% include 'open-graph-tags' %}
+  {% include 'twitter-card' %}
+
+  {{ content_for_header }}
+
+  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+
+  {% if template contains 'customers' %}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+  {% endif %}
+  
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', '');
+    window.theme = window.theme || {};
+    theme.money_format = {{ shop.money_format | json }};
+    theme.money_container = 'span.theme-money';
+    theme.productData = {};
+    theme.checkViewportFillers = function(){
+      var $filler = $('#page-content > .header-overlap-section:eq(0)');
+      $('body').toggleClass('header-section-overlap', $filler.length == 1);
+    };
+    theme.assessAltLogo = function(){
+      var $overlappers = $('.needs-alt-logo');
+      var useAltLogo = false;
+      if($overlappers.length) {
+        var headerMid = $('#site-control').offset().top + $('#site-control').outerHeight() / 2;
+        $overlappers.each(function(){
+          var thisTop = $(this).offset().top;
+          var thisBottom = thisTop + $(this).outerHeight();
+          if(headerMid > thisTop && headerMid < thisBottom) {
+            useAltLogo = true;
+            return false;
+          }
+        });
+      }
+      $('body').toggleClass('use-alt-logo', useAltLogo);
+    };
+  </script>
+</head>
+
+<body id="page-{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template contains 'customers' %} template-customer-area{% endif %}{% if logo_html contains 'img' %} has-logo{% endif %}" >
+
+  {% section 'header' %}
+  
+  {% include 'page-background' %}
+  
+  <div id="page-content">
+    {{ content_for_layout }}
+  </div>
+  
+  {% section 'footer' %}
+  
+  <!-- Search form -->
+  <div id="search-modal" class="theme-modal" tabindex="-1">
+    <div class="inner">
+      <div class="container growth-area">
+        <h1>{{ 'general.search.title' | t }}</h1>
+          <form action="/search" method="get" class="search-form" role="search">
+            {% comment %} Remove the following line to search everything, not just products {% endcomment %}
+            <input type="hidden" name="type" value="product">
+
+            <div class="inline-mini-form">
+              <input type="text" name="q" value="{{ search.terms | escape }}" autocomplete="off" required /><button class="compact" type="submit">{{ 'general.search.submit' | t }} <span class="button__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></span></button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+  
+  {{ 'vendor.js'  | asset_url | script_tag }}
+  {{ 'theme.js'  | asset_url | script_tag }}
+  
+  {% include 'currencies' %}
+
+</body>
+</html>

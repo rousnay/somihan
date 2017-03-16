@@ -1,0 +1,36 @@
+<div id="template">
+  <div id="customer">
+    <!-- Create Customer -->
+    <div id="create-customer">
+      <div class="template_header">
+        <h2 class="feature-header large-heading">{{ 'customer.register.title' | t }}</h2>
+      </div>
+
+      {% form 'create_customer' %}
+      {{ form.errors | default_errors }}
+      <div class="form">
+        <div class="input-row">
+          <input aria-label="{{ 'customer.register.first_name' | t }}" placeholder="{{ 'customer.register.first_name' | t }}" type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" />
+        </div>
+
+        <div class="input-row">
+          <input aria-label="{{ 'customer.register.last_name' | t }}" placeholder="{{ 'customer.register.last_name' | t }}" type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" />
+        </div>
+
+        <div class="input-row">
+          <input aria-label="{{ 'customer.register.email' | t }}" placeholder="{{ 'customer.register.email' | t }}" type="email" value="" name="customer[email]" id="email" class="large" size="30" />
+        </div>
+
+        <div class="input-row">
+          <input aria-label="{{ 'customer.register.password' | t }}" placeholder="{{ 'customer.register.password' | t }}" type="password" value="" name="customer[password]" id="password" class="large password" size="30" />
+        </div>
+
+        <div class="wide-action">
+          <input type="submit" value="{{ 'customer.register.submit' | t }}" />
+          <span class="note">or <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a></span>
+        </div>
+      </div>
+      {% endform %}
+    </div>
+  </div>
+</div>

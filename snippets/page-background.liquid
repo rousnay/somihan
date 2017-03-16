@@ -1,0 +1,5 @@
+{% if settings.bg_image != blank and settings.bg_image_method == 'fill' %}
+<div id="page-bg">
+  {{ settings.bg_image | img_url: '2048x2048' | img_tag }}
+</div>
+{% endif %}

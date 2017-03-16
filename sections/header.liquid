@@ -1,0 +1,211 @@
+{% if template == 'password' or template == 'gift_card' %}
+
+{% comment %} Password/gift card template logo {% endcomment %}
+<a class="logo" href="/">
+  {% if section.settings.logo != blank %}
+  {% assign double_logo_width = section.settings.logo_width | default: 250 | times: 2 %}
+  {% capture img_size %}{% if double_logo_width > 2048 %}2048{% else %}{{ double_logo_width }}{% endif %}x{% endcapture %}
+  <img src="{{ section.settings.logo | img_url: img_size }}" alt="{{ shop.name | escape }}" />
+  {% else %}
+  {{ shop.name | escape }}
+  {% endif %}
+</a>
+
+{% else %}
+
+{% capture logo_html %}
+<a class="logo {% if section.settings.alt_logo != blank %}logo--has-alt-logo{% endif %}" href="/">
+  {% if section.settings.logo != blank %}
+  {% assign double_logo_width = section.settings.logo_width | default: 250 | times: 2 %}
+  {% capture img_size %}{% if double_logo_width > 2048 %}2048{% else %}{{ double_logo_width }}{% endif %}x{% endcapture %}
+  <img src="{{ section.settings.logo | img_url: img_size }}" alt="{{ shop.name | escape }}" />
+  
+  {% if section.settings.alt_logo != blank %}
+  <span class="alt-logo">
+    <img src="{{ section.settings.alt_logo | img_url: img_size }}" alt="{{ shop.name | escape }}" />
+  </span>
+  {% endif %}
+  {% else %}
+  {{ shop.name | escape }}
+  {% endif %}
+</a>
+{% endcapture %}
+
+<div data-section-type="header">
+  {% comment %} ACTUAL HEADER {% endcomment %}
+  <div id="site-control" class="site-control inline icons {% if section.settings.head_fixed %}fixed{% endif %}">
+    <span class="links">
+      <a class="menu" href="#page-menu" data-modal-nav-toggle>
+        {% include 'svg-menu' %}
+        <span class="text-link">{{ 'layout.navigation.menu' | t }}</span>
+      </a>
+
+      {% unless template contains 'index' and section.settings.show_logo_on_homepage == false %}
+      {{ logo_html }}
+      {% endunless %}
+
+      <a class="cart" href="/cart">
+        {% include 'svg-cart' %}<div>{{ cart.item_count }}</div>
+        <span class="text-link">{{ 'layout.navigation.cart' | t }} {% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</span>
+      </a>
+    </span>
+  </div>
+
+  {% comment %} HIDDEN HEADER - USED FOR SPACING {% endcomment %}
+  <div id="faux-site-control" class="site-control faux-site-control inline icons">
+    <span class="links">
+      <a class="menu" href="#page-menu">
+        {% include 'svg-menu' %}
+        <span class="text-link">{{ 'layout.navigation.menu' | t }}</span>
+      </a>
+
+      {% unless template contains 'index' and section.settings.show_logo_on_homepage == false %}
+      {{ logo_html }}
+      {% endunless %}
+
+      <a class="cart" href="/cart">
+        {% include 'svg-cart' %}<div>{{ cart.item_count }}</div>
+        <span class="text-link">{{ 'layout.navigation.cart' | t }} {% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</span>
+      </a>
+    </span>
+  </div>
+  
+  <nav id="page-menu" class="theme-modal nav-uses-modal" tabindex="-1">
+    <div class="inner">
+      <div class="container growth-area">
+        <div class="nav main-nav">
+
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_1 %}
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_2 %}
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_3 %}
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_4 %}
+
+          {% include 'recursive-navigation-helper' with section.settings.menu_linklist %}
+        </div>
+
+        <div>
+          <a class="search" href="/search" data-modal-toggle="#search-modal">
+            {{ 'layout.navigation.search' | t }} <span class="arr">{% include 'svg-rarrow' %}</span>
+          </a>
+        </div>
+      </div>
+
+      {% include 'social-links' %}
+
+      {% include 'currencies-switcher' %}
+
+      {% if shop.customer_accounts_enabled %}
+      <div class="customer-links">
+        {% if customer %}
+        <a href="/account">{{ 'layout.customer.account' | t }}</a> | {{ 'layout.customer.log_out' | t | customer_logout_link }}
+        {% else %}
+        {{ 'layout.customer.log_in' | t | customer_login_link }}
+        {% if shop.customer_accounts_optional %}
+        | {{ 'layout.customer.register' | t | customer_register_link }}
+        {% endif %}
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </nav>
+</div>
+
+{% endif %}
+
+
+<style type="text/css">
+  .logo img { width: {{ section.settings.logo_width }}px; }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "head_fixed",
+        "label": "Enable fixed position",
+		"default": true
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_logo_on_homepage",
+        "label": "Show the logo on the home page",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_width",
+        "label": "Logo width (px)",
+        "default": "200"
+      },
+      {
+        "type": "header",
+        "content": "Contrast logo"
+      },
+	  {
+        "type": "paragraph",
+        "content": "Optional alternate logo to show over the home page slideshow, and over the navigation"
+      },
+	  {
+        "type": "image_picker",
+        "id": "alt_logo",
+        "label": "Image"
+      },
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_linklist",
+        "label": "Menu",
+		"default": "main-menu"
+      },
+      {
+        "type": "header",
+        "content": "Collection menus"
+      },
+      {
+        "type": "paragraph",
+        "content": "These show at the top of the navigation, in a column layout, including their featured images."
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_horizonal_show_title",
+        "label": "Show menu titles",
+        "default": true
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_1",
+        "label": "Menu 1"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_2",
+        "label": "Menu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_3",
+        "label": "Menu 3"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_4",
+        "label": "Menu 4"
+      }
+	]
+  }
+{% endschema %}

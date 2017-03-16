@@ -1,0 +1,198 @@
+<div data-section-type="search-template">
+  {% paginate search.results by section.settings.coll_num_prods %}
+  <div class="central align-center">
+    <h1 class="feature-header large-heading">{{ 'general.search.title' | t }}</h1>
+
+    <form action="/search" method="get" class="search-form" role="search">
+      {% comment %} Remove the following line to search everything, not just products {% endcomment %}
+      <input type="hidden" name="type" value="product">
+
+      <div class="inline-mini-form">
+        <input type="text" name="q" value="{{ search.terms | escape }}" autocomplete="off" required /><button class="compact" type="submit">{{ 'general.search.submit' | t }} <span class="button__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></span></button>
+      </div>
+    </form>
+
+    {% if search.performed %}
+    {% if search.results_count == 0 %}
+    <p>{{ 'general.search.no_results' | t: terms: search.terms }}</p>
+    {% else %}
+    <p>{{ 'general.search.results_with_count' | t: count: search.results_count }}</p>
+    {% endif %}
+    {% endif %}
+  </div>
+
+  {% comment %}
+  search.performed is false when accessing the /search page without a 'q' parameter set
+  in the URL. A shop-owner can link to the /search page from one of his link lists.
+  It is important to show a search form on that page if search.performed is false.
+  {% endcomment %}
+
+  {% if search.performed %}
+
+  {% comment %}
+  Common pitfall to avoid: search.results should never be accessed before the opening 
+  paginate tag. Move the opening and closing paginate tags to the very top and bottom of your
+  search.liquid template if you need to.
+  If you fail to do the above, the pagination of search results will be broken.
+  search.results_count is fine to access in or out of the paginate block.
+  {% endcomment %}
+
+  {% if search.results_count > 0 %}
+
+  <div class="wide-container double-gutter">
+    <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row }}{% endif %}">
+      {% if section.settings.coll_layout == 'rows' %}
+      {% if section.settings.coll_layout_per_row == "2" %}
+      {% assign product_class = 'column half' %}
+      {% elsif section.settings.coll_layout_per_row == "3" %}
+      {% assign product_class = 'column third' %}
+      {% else %}
+      {% assign product_class = 'column quarter' %}
+      {% endif %}
+      {% endif %}
+
+      {% for item in search.results %}
+      {% if item.featured_image %}
+      {% assign product = item %}
+      {% include 'product-block' %}
+      {% else %}
+      <div class="product-block {{ product_class }} content" data-loop-index="{{forloop.index}}">
+        {% if item.object_type == 'article' and item.image %}
+        <div class="article-image">{{ item.image | img_url: 'grande' | img_tag | link_to: item.url }}</div>
+        {% endif %}
+        <h4>{{ item.title | link_to: item.url }}</h4>
+        <div class="rte">
+          <p>{{ item.content | strip_html | truncatewords: 30 | highlight: search.terms }}</p>
+          <p>{{ 'Read more &rarr;' | link_to: item.url }}</p>
+        </div>
+      </div>
+      {% if product_class contains 'quarter' %}
+      {% cycle 'products': '','','','<div class="er"></div>' %}
+      {% elsif product_class contains 'third' %}
+      {% cycle 'products': '','','<div class="er"></div>' %}
+      {% elsif product_class contains 'half' %}
+      {% cycle 'products': '','<div class="er"></div>' %}
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endif %}
+  
+  {% comment %}
+
+  Infinite scroll option:
+
+  By default, more products will load in once you scroll to the bottom of the page.
+
+  Change 'false' to 'true' on the line below to prevent this from happening, and instead show a button at the bottom of the page.
+  Clicking this button will load in the next batch of products.
+
+  {% endcomment %}
+  {% assign show_scroll_button = false %}
+
+  {% if paginate.pages > 1 %}
+  <div class="pagination central content {% if section.settings.coll_infiniscroll %}infiniscroll{% if show_scroll_button %} wait-for-trigger{% endif %}{% endif %}">
+    {{ paginate | default_pagination }}
+  </div>
+  {% endif %}
+
+  {% endif %}
+  {% endpaginate %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Search page",
+    "settings": [
+      {
+        "type": "select",
+        "id": "coll_layout",
+        "label": "Product layout",
+        "options": [
+          {
+            "value": "columns",
+            "label": "Collage"
+          },
+          {
+            "value": "rows",
+            "label": "Grid"
+          }
+        ],
+        "default": "columns"
+      },
+      {
+        "type": "select",
+        "id": "coll_layout_per_row",
+        "label": "Products per row",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          }
+        ],
+        "default": "3"
+      },
+      {
+        "type": "select",
+        "id": "coll_num_prods",
+        "label": "How many products to show per page",
+        "options": [
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          },
+          {
+            "value": "36",
+            "label": "36"
+          },
+          {
+            "value": "48",
+            "label": "48"
+          }
+        ],
+        "default": "12"
+      },
+      {
+        "type": "select",
+        "id": "coll_captionmode",
+        "label": "Title and price layout",
+		"default": "over-hover",
+        "options": [
+          {
+            "value": "over-hover",
+            "label": "Overlay - on hover"
+          },
+          {
+            "value": "under",
+            "label": "Underneath the image"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_infiniscroll",
+        "label": "Enable infinite-scroll",
+        "default": true
+      }
+	]
+  }
+{% endschema %}

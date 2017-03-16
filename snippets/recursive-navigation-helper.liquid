@@ -1,0 +1,42 @@
+{% comment %} Sanity check to prevent infinite recursion {% endcomment %}
+{% assign sanity = sanity | plus: 1 %}
+
+{% if sanity < 10000 %}
+{% if linklists[recursive-navigation-helper].links.size > 0 %}
+
+<ul data-menu-handle="{{ recursive-navigation-helper }}">
+{% for link in linklists[recursive-navigation-helper].links %}
+  <li {% if link.active %}class="active"{% endif %}>
+      <a href="{{ link.url }}">
+        <span>{{ link.title }}</span>
+      </a>
+      {% assign sub_menu_list_handle_stub = link.title | handleize %}
+      {% comment %} Include new menu - recursive {% endcomment %}
+      {% include 'recursive-navigation-helper' with sub_menu_list_handle_stub %}
+    </li>
+{% endfor %}
+</ul>
+{% else %}
+
+  {% comment %} Check for foreign-language links {% endcomment %}
+  {% assign has_drop_down = false %}
+  {% if recursive-navigation-helper == '' %}
+      {% for i in (0..8) %}
+        {% unless has_drop_down %}
+          {% if forloop.first %}
+            {% assign temp = 'link-list' %}
+          {% else %}
+            {% capture temp %}link-list-{{ i }}{% endcapture %}
+          {% endif %}
+          {% if linklists[temp] and linklists[temp].links.size > 0 and linklists[temp].title == link.title %}
+            {% assign has_drop_down = true %}
+            {% assign child_list_handle = temp %}
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+  {% endif %}
+  {% if has_drop_down %}
+    {% include 'recursive-navigation-helper' with child_list_handle %}
+  {% endif %}
+{% endif %}
+{% endif %}

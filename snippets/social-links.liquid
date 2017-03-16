@@ -1,0 +1,29 @@
+<div class="social-links">
+  {% if settings.social_twitter_url != blank %}
+  <a title="Twitter" class="twitter" target="_blank" href="{{ settings.social_twitter_url }}">{% include 'svg-twitter' %}</a>
+  {% endif %}
+  {% if settings.social_facebook_url != blank %}
+  <a title="Facebook" class="facebook" target="_blank" href="{{ settings.social_facebook_url }}">{% include 'svg-facebook' %}</a>
+  {% endif %}
+  {% if settings.social_tumblr_url != blank %}
+  <a title="Tumblr" class="tumblr" target="_blank" href="{{ settings.social_tumblr_url }}">{% include 'svg-tumblr' %}</a>
+  {% endif %}
+  {% if settings.social_youtube_url != blank %}
+  <a title="Youtube" class="youtube" target="_blank" href="{{ settings.social_youtube_url }}">{% include 'svg-youtube' %}</a>
+  {% endif %}
+  {% if settings.social_vimeo_url != blank %}
+  <a title="Vimeo" class="vimeo" target="_blank" href="{{ settings.social_vimeo_url }}">{% include 'svg-vimeo' %}</a>
+  {% endif %}
+  {% if settings.social_instagram_url != blank %}
+  <a title="Instagram" class="instagram" target="_blank" href="{{ settings.social_instagram_url }}">{% include 'svg-instagram' %}</a>
+  {% endif %}
+  {% if settings.social_pinterest_url != blank %}
+  <a title="Pinterest" class="pinterest" target="_blank" href="{{ settings.social_pinterest_url }}">{% include 'svg-pinterest' %}</a>
+  {% endif %}
+  {% if settings.social_google_url != blank %}
+  <a title="Google+" class="google" target="_blank" href="{{ settings.social_google_url }}">{% include 'svg-google-plus' %}</a>
+  {% endif %}
+  {% if settings.social_rss_url != blank %}
+  <a title="RSS" class="rss" target="_blank" href="{{ settings.social_rss_url }}">{% include 'svg-rss' %}</a>
+  {% endif %}
+</div><!-- .social-links -->

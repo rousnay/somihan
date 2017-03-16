@@ -1,0 +1,120 @@
+<div class="wide-container double-gutter section-spacing" data-section-type="featured-collections">
+  {% if section.settings.title != blank %}
+  <h1 class="section-title">{{ section.settings.title }}</h1>
+  {% endif %}
+  
+  <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row }}{% endif %}">
+    {% if section.settings.coll_layout == 'rows' %}
+    {% if section.settings.coll_layout_per_row == "2" %}
+    {% assign product_class = 'column half' %}
+    {% elsif section.settings.coll_layout_per_row == "3" %}
+    {% assign product_class = 'column third' %}
+    {% else %}
+    {% assign product_class = 'column quarter' %}
+    {% endif %}
+    {% endif %}
+    
+    {% for block in section.blocks %}
+    {% if block.settings.collection == blank %}
+    {% include 'onboarding-collection-block' %}
+    
+    {% else %}
+    
+    {% include 'collection-block', collection: collections[block.settings.collection] %}
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Collection list",
+	"max_blocks": 20,
+    "settings": [
+	  {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+		"default": "Collection list"
+	  },
+      {
+        "type": "select",
+        "id": "coll_layout",
+        "label": "Product layout",
+        "options": [
+          {
+            "value": "columns",
+            "label": "Collage"
+          },
+          {
+            "value": "rows",
+            "label": "Grid"
+          }
+        ],
+        "default": "columns"
+      },
+      {
+        "type": "select",
+        "id": "coll_layout_per_row",
+        "label": "Products per row",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          }
+        ],
+        "default": "3"
+      },
+      {
+        "type": "select",
+        "id": "coll_captionmode",
+        "label": "Title and price layout",
+		"default": "over-hover",
+        "options": [
+          {
+            "value": "over-hover",
+            "label": "Overlay - on hover"
+          },
+          {
+            "value": "under",
+            "label": "Underneath the image"
+          }
+        ]
+      }
+	],
+	"blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+              "type": "collection",
+              "id": "collection",
+              "label": "Collection"
+          }
+		]
+	  }
+	],
+	"presets": [
+	  {
+		"name": "Collection list",
+        "category": "Collection",
+        "settings": {},
+		"blocks": [
+			{ "type": "collection" },
+			{ "type": "collection" },
+			{ "type": "collection" }
+		]
+	  }
+	]
+  }
+{% endschema %}

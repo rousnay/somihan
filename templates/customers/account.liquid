@@ -1,0 +1,62 @@
+<div class="central content rte">
+  <div id="admin_header">
+    <div class="action_link action_return note" id='return_to_store'><a href="{{ shop.url }}">{{ 'customer.general.return' | t }}</a></div>
+    <h2 class="feature-header large-heading">{{ 'customer.account.title' | t }}</h2>
+  </div>
+
+  <div id="customer_sidebar" class="section-spacing">
+    <div id="customer_detail" class="group">
+      <h5 class="name">{{ customer.name }}</h5>
+      <p class="email note">{{ customer.email }}</p>
+      <div class="address note">
+        {% if customer.default_address != nil %}
+        <p>{{ customer.default_address.address1 }}</p>
+        {% if customer.default_address.address2 != "" %}
+        <p>{{ customer.default_address.address2 }}</p>
+        {% endif %}
+        <p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
+        <p>{{ customer.default_address.zip}}</p>
+        <p>{{ customer.default_address.phone }}</p>
+        {% endif %}
+        <a id="view_address" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="customer_orders">
+    {% paginate customer.orders by 20 %}
+    {% if customer.orders.size != 0 %}
+    <table>
+      <thead>
+        <tr>
+          <th class="order_number">{{ 'customer.orders.order_number' | t }}</th>
+          <th class="date">{{ 'customer.orders.date' | t }}</th>
+          <th class="payment_status">{{ 'customer.orders.payment_status' | t }}</th>
+          <th class="fulfillment_status">{{ 'customer.orders.fulfillment_status' | t }}</th>
+          <th class="total">{{ 'customer.orders.total' | t }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in customer.orders %}
+        <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+          <td>{{ order.name | link_to: order.customer_url }}</td>
+          <td><span class="note">{{ order.created_at | date: format: 'month_date_year' }}</span></td>
+          <td><span class="status_{{ order.financial_status }}">{{ order.financial_status_label }}</span></td>
+          <td><span class="status_{{ order.fulfillment_status }}">{{ order.fulfillment_status_label }}</span></td>
+          <td><span class="total theme-money">{{ order.total_price | money }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>{{ 'customer.orders.none' | t }}</p>
+    {% endif %}
+    {% if paginate.pages > 1 %}
+    <div id="pagination">
+      {{ paginate | default_pagination }}
+    </div>
+    {% endif %}
+    {% endpaginate %}
+  </div>
+</div>

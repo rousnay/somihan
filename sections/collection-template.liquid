@@ -1,0 +1,220 @@
+<div data-section-type="collection-template">
+  {% paginate collection.products by section.settings.coll_num_prods %}
+  <div class="central">
+    <div class="content {% unless section.settings.coll_content_bg_show %}transparent{% endunless %}">
+      {% if collection.description != blank %}
+      <h1 class="feature-header large-heading">{{ collection.title }}</h1>
+      <div class="rte">
+        {{ collection.description }}
+      </div>
+      {% else %}
+      <h1 class="feature-header large-heading no-margin">{{ collection.title }}</h1>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="filter">
+    {% if section.settings.coll_show_tags %}
+    {% if collection.url.size == 0 %}
+    {% assign collection_url = '/collections/all' %}
+    {% else %}
+    {% assign collection_url = collection.url %}
+    {% endif %}
+
+    {% assign show_tag_filter = false %}
+    {% capture tag_filter_html %}
+    <span class="option">
+      <label for="filter-by">{{ 'collections.filtering.filter_by' | t }}</label> 
+      <select id="filter-by" class="redirecter">
+        <option value="{{ collection_url }}">{{ 'collections.filtering.all' | t }}</option>
+        {% for tag in collection.all_tags %}
+        {% unless tag contains 'meta-' %}
+        <option value="{{ collection_url }}/{{ tag | handle }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag | capitalize }}</option>
+        {% assign show_tag_filter = true %}
+        {% endunless %}
+        {% endfor %}
+      </select>
+    </span>
+    {% endcapture %}
+    {% if show_tag_filter %}{{ tag_filter_html }}{% endif %}
+    {% endif %}
+
+
+    {% if section.settings.coll_show_sort %}
+    <span class="option">
+      <label for="sort-by">{{ 'collections.sorting.title' | t }}</label> 
+      <select id="sort-by" data-initval="{{ collection.sort_by | default: collection.default_sort_by  }}">
+        {% if section.settings.coll_show_feat %}<option value="manual">{{ 'collections.sorting.featured' | t }}</option>{% endif %}
+        <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
+        <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
+        <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
+        <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
+        <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option>
+        <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
+        <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
+      </select>
+    </span>
+    {% endif %}
+  </div>
+
+
+  {% unless collection.products.size > 0 %}<p class="align-centre"><em>{{ 'collections.general.no_matches' | t }}</em></p>{% endunless %}
+
+  <div class="wide-container double-gutter">
+    <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row }}{% endif %}">
+      {% if section.settings.coll_layout == 'rows' %}
+      {% if section.settings.coll_layout_per_row == "2" %}
+      {% assign product_class = 'column half' %}
+      {% elsif section.settings.coll_layout_per_row == "3" %}
+      {% assign product_class = 'column third' %}
+      {% else %}
+      {% assign product_class = 'column quarter' %}
+      {% endif %}
+      {% endif %}
+
+      {% for product in collection.products %}
+      {% include 'product-block' %}
+      {% endfor %}
+    </div>
+  </div>
+
+
+  {% comment %}
+
+  Infinite scroll option:
+
+  By default, more products will load in once you scroll to the bottom of the page.
+
+  Change 'false' to 'true' on the line below to prevent this from happening, and instead show a button at the bottom of the page.
+  Clicking this button will load in the next batch of products.
+
+  {% endcomment %}
+  {% assign show_scroll_button = false %}
+
+  {% if paginate.pages > 1 %}
+  <div class="pagination central content {% if section.settings.coll_infiniscroll %}infiniscroll{% if show_scroll_button %} wait-for-trigger{% endif %}{% endif %}  {% unless section.settings.coll_content_bg_show %}transparent{% endunless %}">
+    {{ paginate | default_pagination }}
+  </div>
+  {% endif %}
+
+  {% endpaginate %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "coll_content_bg_show",
+        "label": "Show background color behind title and description",
+		"default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_show_tags",
+        "label": "Show tag filters",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_show_sort",
+        "label": "Show sorting dropdown",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_show_feat",
+        "label": "Show 'Featured' option in sorting dropdown",
+		"default": false
+      },
+      {
+        "type": "select",
+        "id": "coll_layout",
+        "label": "Product layout",
+        "options": [
+          {
+            "value": "columns",
+            "label": "Collage"
+          },
+          {
+            "value": "rows",
+            "label": "Grid"
+          }
+        ],
+        "default": "columns"
+      },
+      {
+        "type": "select",
+        "id": "coll_layout_per_row",
+        "label": "Products per row",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          }
+        ],
+        "default": "3"
+      },
+      {
+        "type": "select",
+        "id": "coll_num_prods",
+        "label": "How many products to show per page",
+        "options": [
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          },
+          {
+            "value": "36",
+            "label": "36"
+          },
+          {
+            "value": "48",
+            "label": "48"
+          }
+        ],
+        "default": "12"
+      },
+      {
+        "type": "select",
+        "id": "coll_captionmode",
+        "label": "Title and price layout",
+		"default": "over-hover",
+        "options": [
+          {
+            "value": "over-hover",
+            "label": "Overlay - on hover"
+          },
+          {
+            "value": "under",
+            "label": "Underneath the image"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_infiniscroll",
+        "label": "Enable infinite-scroll",
+        "default": true
+      }
+	]
+  }
+{% endschema %}

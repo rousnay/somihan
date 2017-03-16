@@ -1,0 +1,6 @@
+{% section 'product-template' %}
+
+<script>
+  theme.checkViewportFillers();
+  theme.productData[{{ product.id }}] = {{ product | json }};
+</script>

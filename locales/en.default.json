@@ -1,0 +1,321 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "404": {
+      "title": "404 Page Not Found",
+      "subtext_html": "The page you requested does not exist. Click <a href=\"\/collections\/all\">here<\/a> to continue shopping."
+    },
+    "search": {
+      "no_results": "Your search for \"{{ terms }}\" did not yield any results.",
+      "results_with_count": {
+        "one": "We found {{ count }} result",
+        "other": "We found {{ count }} results"
+      },
+      "title": "Search",
+      "submit": "Search"
+    },
+    "social": {
+      "title": "Share",
+      "on_facebook": "Share on Facebook",
+      "on_twitter": "Share on Twitter",
+      "on_pinterest": "Pin the main image",
+      "on_google": "Share on Google+",
+      "by_email": "Email this product to somebody",
+      "check_out_html": "Check out {{ title }}"
+    },
+    "signup": {
+      "subscribe": "Subscribe",
+      "post_success": "Thank you for signing up!"
+    },
+    "multi_currency": {
+      "pick_a_currency": "Pick a currency"
+    }
+  },
+  "blogs": {
+    "general": {
+      "no_matches": "You don't have any articles yet! Once you've written one, it will show up here."
+    },
+    "filtering": {
+      "filter_by": "Filter by",
+      "all": "All"
+    },
+    "pagination": {
+      "older_articles": "Older articles",
+      "newer_articles": "Newer articles"
+    },
+    "article": {
+      "older_post_html": "Older Post",
+      "newer_post_html": "Newer Post",
+      "read_more": "Read more",
+      "back_to_blog_html": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "author_meta": "{{ author }} says...",
+      "date_meta": "On {{ comment_date }}",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your Cart",
+      "backorder": "Product is backordered. We will ship it separately in 10 to 15 days.",
+      "update": "Update cart",
+      "continue": "Continue shopping",
+      "checkout": "Check Out",
+      "message": "Price excludes delivery, which is applied at checkout",
+      "empty": "Your cart is currently empty.",
+      "continue_browsing_html": "Continue browsing <a href=\"\/collections\/all\">here<\/a>."
+    },
+    "terms": {
+      "agreement_html": "I agree to the <a href=\"{{ terms_url }}\" target=\"_blank\">terms and refund policy<\/a>",
+      "confirmation": "You must agree to the terms and conditions before continuing."
+    },
+    "multi_currency": {
+      "notice_html": "{{ shop_name }} process all orders in <strong>{{ shop_currency }}<\/strong>. While the content of your cart is currently displayed in {{ selected_currency }}, you will checkout using <strong>{{ shop_currency }}<\/strong> at the most current exchange rate."
+    },
+    "label": {
+      "note": "Special instructions for the seller:",
+      "subtotal": "Subtotal"
+    }
+  },
+  "collections": {
+    "general": {
+      "no_matches": "Sorry, there are no products matching your search.",
+      "product_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "infinite_scroll_no_more": "No more results"
+    },
+    "filtering": {
+      "filter_by": "Filter by",
+      "all": "All"
+    },
+    "sorting": {
+      "title": "Sort by",
+      "featured": "Featured",
+      "best_selling": "Best Selling",
+      "az": "Alphabetically, A-Z",
+      "za": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_descending": "Date, new to old",
+      "date_ascending": "Date, old to new"
+    },
+    "listing": {
+      "title": "Collections"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible."
+    }
+  },
+  "customer": {
+    "general": {
+      "return": "Return to Store"
+    },
+    "account": {
+      "title": "My Account",
+      "details": "Account Details",
+      "view_addresses": "View Addresses",
+      "return": "Return to Account Details"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "title": "Your Addresses",
+      "default": "Default",
+      "add_new": "Add a New Address",
+      "edit_address": "Edit address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address1",
+      "address2": "Address2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal\/Zip Code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "sign_in": "Sign In",
+      "cancel": "Return to Store",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    },
+    "orders": {
+      "title": "Order History",
+      "order_number": "Order",
+      "date": "Date",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date": "Placed on {{ date }}",
+      "cancelled": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "fulfilled_at": "Fulfilled {{ date }}",
+      "subtotal": "Subtotal"
+    },
+    "recover_password": {
+      "title": "Reset your password",
+      "email": "Email",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "subtext": "We will send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password for {{ email }}",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Reset Password"
+    },
+    "register": {
+      "title": "Create Account",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create",
+      "cancel": "Return to Store"
+    }
+  },
+  "layout": {
+    "navigation": {
+      "home": "Home",
+      "menu": "Menu",
+      "cart": "Cart",
+      "search": "Search"
+    },
+    "customer": {
+      "account": "Account",
+      "log_out": "Log out",
+      "log_in": "Log in",
+      "register": "Register"
+    },
+    "footer": {
+      "theme_by_html": "<span>Theme by <a href=\"http:\/\/www.cleanthemes.co.uk\" target=\"_blank\">Clean Themes<\/a>.<\/span>"
+    }
+  },
+  "products": {
+    "product": {
+      "sale": "Sale",
+      "add_to_cart": "Add to cart",
+      "adding_to_cart": "Adding",
+      "added_to_cart": "Added",
+      "quantity": "Quantity",
+      "backorder": "is backordered. We will ship it separately in 10 to 15 days.",
+      "product_unavailable": "This product is unavailable",
+      "popup_was_added": "was added to your cart",
+      "popup_continue_shopping": "Continue shopping",
+      "popup_checkout": "Checkout",
+      "other_products": "Other products",
+      "previous": "Previous",
+      "next": "Next",
+      "related_title": "You may also like"
+    },
+    "listing": {
+      "from": "From",
+      "sold_out": "Sold out"
+    },
+    "variant": {
+      "out_of_stock": "Out of stock",
+      "non_existent": "Unavailable",
+      "no_stock": "Sold out"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
+      "disabled": "Disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
+      "print": "Print"
+    }
+  },
+  "storefront_password": {
+    "general": {
+      "page_title": "Opening Soon",
+      "powered_by": "This shop will be powered by",
+      "social_label": "Spread the word:"
+    },
+    "login": {
+      "link": "Enter using password",
+      "label": "Enter store using password:",
+      "button": "Enter",
+      "admin_link_html": "Are you the store owner? <a href=\"\/admin\">Log in here<\/a>"
+    },
+    "signup": {
+      "title": "Find out when we open:",
+      "placeholder": "Your email",
+      "button": "Submit",
+      "success": "Thanks for your interest! We'll be sure to keep you up to date."
+    }
+  },
+  "onboarding": {
+    "collection": {
+      "title": "Collection"
+    },
+    "product": {
+      "title": "Product"
+    }
+  },
+  "date_formats": {
+    "month_date_year": "%b %d, %Y"
+  }
+}

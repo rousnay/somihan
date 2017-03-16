@@ -1,0 +1,26 @@
+<div class="product-block collection-block caption-{{ section.settings.coll_captionmode }} {{ product_class }}" data-loop-index="{{forloop.index}}">
+  <div class="product-block__inner">
+    <div class="image">
+      <span class="image-inner">
+        {% capture placeholder_svg_name %}collection-{{ forloop.index0 | modulo: 6 | plus: 1 }}{% endcapture %}
+        <div class="placeholder-image">{{ placeholder_svg_name | placeholder_svg_tag }}</div>
+      </span>
+    </div>
+    <div class="caption middle">
+      <span class="title">{{ 'onboarding.collection.title' | t }}</span>
+    </div>
+    <div class="caption lower">
+      <span class="price">
+        {{ 'collections.general.product_count' | t: count: 0 }}
+      </span>
+    </div>
+  </div>
+</div>
+
+{% if product_class contains 'quarter' %}
+{% cycle 'products': '','','','<div class="er"></div>' %}
+{% elsif product_class contains 'third' %}
+{% cycle 'products': '','','<div class="er"></div>' %}
+{% elsif product_class contains 'half' %}
+{% cycle 'products': '','<div class="er"></div>' %}
+{% endif %}

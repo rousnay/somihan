@@ -1,0 +1,155 @@
+<div data-section-type="slideshow">
+  <div class="slideshow auto-play fill-viewport section-id-{{ section.id }}">
+    {% for block in section.blocks %}
+
+    <div class="slide slide-{{ forloop.index }} load-bg" {{ block.shopify_attributes }}>
+      {% if block.settings.link_url != blank %}<a href="{{ block.settings.link_url }}">{% endif %}
+
+      {% if block.settings.image == blank %}
+      <div class="placeholder-image placeholder--banner {% if block.settings.heading != blank or block.settings.subheading != blank %}dark{% endif %}">
+        {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+        {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+      {% endif %}
+
+      {% if block.settings.heading != blank or block.settings.subheading != blank or block.settings.button_text != blank %}
+      <div class="overlay-type overlay position-{{ block.settings.position }}">
+        <div class="inner">
+          <div>
+            <h1 class="line-1 large-heading">{{ block.settings.heading }}</h1>
+            <div class="line-2 emphasised">{{ block.settings.subheading }}</div>
+            {% if block.settings.button_text != blank %}
+            <div class="line-3">
+              <span class="button">{{ block.settings.button_text }} <span class="button__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></span></span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if block.settings.link_url != blank %}</a>{% endif %}
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+<style type="text/css">
+  .section-id-{{ section.id }} {
+    background: {{ section.settings.background }};
+  }
+  
+  {% for block in section.blocks %}
+  .section-id-{{ section.id }} .slide.slide-{{ forloop.index }} .overlay-type .line-1,
+  .section-id-{{ section.id }} .slide.slide-{{ forloop.index }} .overlay-type .line-2 {
+    color: {{ block.settings.text_color }};
+  }
+  
+  {% if block.settings.image != blank %}
+  .section-id-{{ section.id }} .slide.slide-{{ forloop.index }} {
+    background-image: url({{ block.settings.image | img_url: '1024x' }});
+  }
+  @media (min-width: 767px) {
+    .section-id-{{ section.id }} .slide.slide-{{ forloop.index }} {
+      background-image: url({{ block.settings.image | img_url: '1800x' }});
+    }
+  }
+  @media (min-width: 1200px) {
+    .section-id-{{ section.id }} .slide.slide-{{ forloop.index }} {
+      background-image: url({{ block.settings.image | img_url: '2048x' }});
+    }
+  }
+  {% endif %}
+  {% endfor %}
+</style>
+
+
+{% schema %}
+  {
+    "name": "Slideshow",
+	"class": "header-overlap-section needs-alt-logo",
+	"max_blocks": 8,
+    "settings": [
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Loading background color",
+        "default": "#423e4e"
+      }
+	],
+	"blocks": [
+	  {
+		"type": "image",
+        "name": "Slide",
+        "settings": [
+			{
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image",
+              "info": "1200px wide minimum"
+            },
+            {
+              "type": "text",
+              "id": "heading",
+              "label": "Heading",
+			  "default": "Slideshow"
+            },
+			{
+              "type": "text",
+              "id": "subheading",
+              "label": "Subheading",
+			  "default": "Tell your story with images"
+            },
+			{
+              "type": "text",
+              "id": "button_text",
+              "label": "Button text"
+            },
+            {
+              "type": "select",
+              "id": "position",
+              "label": "Text position",
+              "options": [
+                {
+                  "value": "middle",
+                  "label": "Middle"
+                },
+                {
+                  "value": "lower-left",
+                  "label": "Lower left"
+                }
+              ],
+			  "default": "middle"
+            },
+            {
+              "type": "color",
+              "id": "text_color",
+              "label": "Text color",
+              "default": "#ffffff"
+            },
+            {
+              "type": "url",
+              "id": "link_url",
+              "label": "Link"
+            }
+		]
+	  }
+	],
+	"presets": [
+	  {
+		"name": "Slideshow",
+        "category": "Image",
+        "settings": {
+        },
+		"blocks": [
+		  {
+			"type": "image"
+		  },
+	 	  {
+			"type": "image"
+		  }
+		]
+	  }
+	]
+  }
+{% endschema %}

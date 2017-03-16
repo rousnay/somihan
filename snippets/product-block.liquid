@@ -1,0 +1,61 @@
+{% comment %}
+ADDING SHOPIFY'S REVIEWS? LOOK NO FURTHER!
+
+This theme supports the Product Reviews app out of the box.
+https://apps.shopify.com/product-reviews
+
+Change 'false' to 'true' on the line below, to show them.
+{% endcomment %}
+{% assign show_product_reviews = false %}
+
+
+
+{% comment %}Is this product on sale?{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign product_url = product.url | within: collection %}
+
+<div class="product-block{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %} caption-{{ section.settings.coll_captionmode }} {% if product.tags contains 'meta-layout-right' %}layout-right{% endif %} {{ product_class }}" data-loop-index="{{forloop.index}}">
+  <div class="product-block__inner">
+    {% assign image_size = '1024x1024' %}
+
+    <div class="image">
+      <a class="image-inner" href="{{ product_url }}">
+        {{ product.featured_image | product_img_url: image_size | img_tag: product.title }}
+
+        {% if product.available == false %}
+        <span class="product-label unavailable"><span>{{ 'products.listing.sold_out' | t }}</span></span>
+        {% elsif product.compare_at_price > product.price %}
+        <span class="product-label sale"><span>{{ 'products.product.sale' | t }}</span></span>
+        {% endif %}
+      </a>
+    </div>
+    <div class="caption upper">
+      <a href="{{ product_url }}" class="title">{{ product.title }}</a>
+    </div>
+    <div class="caption lower">
+      {% if show_product_reviews %}
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      {% endif %}
+
+      <a href="{{ product_url }}" class="price">
+        {% if product.price_varies %}{{ 'products.listing.from' | t }}{% endif %}
+        <span class="theme-money">{{ product.price | money }}</span>
+        {% if on_sale %}<span class="was-price theme-money">{{ product.compare_at_price | money }}</span>{% endif %}
+
+        {% unless product.available %}<div class="sold-out">{{ 'products.listing.sold_out' | t }}</div>{% endunless %}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% if product_class contains 'quarter' %}
+{% cycle 'products': '','','','<div class="er"></div>' %}
+{% elsif product_class contains 'third' %}
+{% cycle 'products': '','','<div class="er"></div>' %}
+{% elsif product_class contains 'half' %}
+{% cycle 'products': '','<div class="er"></div>' %}
+{% endif %}

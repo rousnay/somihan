@@ -1,0 +1,156 @@
+<div class="text-beside-image cf section-id-{{ section.id }}" data-section-type="text-beside-image">
+  
+  {% if section.settings.layout == 'left' %}
+  <div class="text-beside-image__image">
+    {% if section.settings.image == blank %}
+    <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+    {% else %}
+    <img src="{{ section.settings.image | img_url: '1024x' }}" alt="{{ section.settings.image.alt | escape }}" />
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="text-beside-image__text">
+    <div class="text-beside-image__text__wrap inherit-colors">
+      {% if section.settings.title != blank %}
+      <h1 class="feature-header large-heading">{{ section.settings.title }}</h1>
+      {% endif %}
+      <div class="rte emphasised">{{ section.settings.text }}</div>
+      {% if section.settings.button_text != blank %}
+      <div class="button-row">
+        {% if section.settings.button_url != blank %}
+        <a class="button" href="{{ section.settings.button_url }}">
+          {% else %}
+          <span class="button">
+            {% endif %}
+            {{ section.settings.button_text }} <span class="button__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></span>
+            {% if section.settings.button_url == blank %}
+          </span>
+          {% else %}
+        </a>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  
+  {% if section.settings.layout == 'right' %}
+  <div class="text-beside-image__image">
+    {% if section.settings.image == blank %}
+    <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+    {% else %}
+    <img src="{{ section.settings.image | img_url: '1024x' }}" alt="{{ section.settings.image.alt | escape }}" />
+    {% endif %}
+  </div>
+  {% endif %}
+  
+</div>
+
+{% assign button_background_brightness = section.settings.button_background | color_brightness %}
+{% capture button_text_col %}{% if button_background_brightness > 150 %}#333{% else %}#fff{% endif %}{% endcapture %}
+
+<style type="text/css">
+  .section-id-{{ section.id }} {
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.text_background }};
+  }
+  .section-id-{{ section.id }} .feature-header:after {
+    border-top-color: {{ section.settings.text_color }};
+  }
+  .section-id-{{ section.id }} .button {
+    background: {{ section.settings.button_background }};
+    border-color: {{ section.settings.button_background }};
+    color: {{ button_text_col }};
+  }
+  .section-id-{{ section.id }} .button svg {
+    fill: {{ button_text_col }};
+  }
+  .section-id-{{ section.id }} .button:hover {
+    background: transparent;
+    color: {{ section.settings.button_background }};
+  }
+  .section-id-{{ section.id }} .button:hover svg {
+    fill: {{ section.settings.button_background }};
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+		"default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "Text on left"
+          },
+		  {
+            "value": "left",
+            "label": "Text on right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+		"default": "Image with text"
+      },
+	  {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+		"default": "<p>Use this text to share information about your store with your customers.</p><p>Describe product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button link"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+	  {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+		"default": "#464654"
+      },
+	  {
+        "type": "color",
+        "id": "text_background",
+        "label": "Background color",
+		"default": "#ffffff"
+      },
+	  {
+        "type": "color",
+        "id": "button_background",
+        "label": "Button color",
+		"default": "#464654"
+      }
+	],
+	"presets": [
+	  {
+		"name": "Image with text",
+        "category": "Image",
+        "settings": {}
+	  }
+	]
+  }
+{% endschema %}

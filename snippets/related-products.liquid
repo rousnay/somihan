@@ -1,0 +1,35 @@
+{% assign related_product_count = 3 %}
+
+{% assign show_related = false %}
+{% capture related_markup %}
+
+{% assign product_collection = collection %}
+{% unless product_collection %}{% assign need_new_collection = true %}{% else %}{% assign need_new_collection = false %}{% endunless %}
+  {% if need_new_collection or product_collection.handle == 'all' or product_collection.handle contains 'frontpage' %}
+  {% for coll in product.collections %}
+    {% unless coll.handle == 'all' or coll.handle contains 'frontpage' %}
+      {% assign product_collection = coll %}
+    {% endunless %}
+  {% endfor %}
+{% endif %}
+
+{% assign product_class = 'column third' %}
+
+<h4 class="h1 section-title">{{ 'products.product.related_title' | t }}</h4>
+    
+<div class="wide-container double-gutter">
+  <div class="product-list">
+    {% assign product_limit_plus_one = related_product_count | plus: 1 %}
+    {% assign product_iter = 1 %}
+    {% for related_product in product_collection.products limit: product_limit_plus_one %}
+    {% if product.handle != related_product.handle and product_iter < product_limit_plus_one %}
+    {% include 'product-block' with related_product, product: related_product, collection: product_collection %}
+    {% assign show_related = true %}
+    {% assign product_iter = product_iter | plus: 1 %}
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endcapture %}
+{% if show_related %}{{ related_markup }}{% endif %}

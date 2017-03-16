@@ -1,0 +1,427 @@
+{
+  "current": {
+    "col_text": "#6a6561",
+    "col_headings": "#424242",
+    "col_links": "#3f51b5",
+    "col_mod_bg": "#6699ac",
+    "use_mod_bg_op": true,
+    "col_content_bg": "#ffffff",
+    "use_content_bg_trans": true,
+    "col_head_links": "#434343",
+    "col_head_links_alt": "#fffdfb",
+    "col_nav_prim": "#fffdfb",
+    "col_nav_sec": "#fffdfb",
+    "col_btn": "#fffdfb",
+    "col_btn_bg": "#0a1634",
+    "col_select_bg": "#ffffff",
+    "col_select_txt": "#8d8d8d",
+    "prod_label_col": "#3f51b5",
+    "footer_text": "#fffdfb",
+    "footer_background": "#0a1634",
+    "col_page_bg": "#fffdfb",
+    "bg_image": "",
+    "bg_image_method": "fill",
+    "font_fam_base": "GWF|Vollkorn|400",
+    "font_fam_headings": "GWF|Karla|700",
+    "font_fam_nav": "GWF|Cardo|700",
+    "font_fam_logo": "GWF|Work+Sans|600",
+    "font_size_base": "17",
+    "font_size_nav": "50",
+    "font_size_nav_sub": "25",
+    "social_twitter_url": "",
+    "social_facebook_url": "",
+    "social_pinterest_url": "",
+    "social_tumblr_url": "",
+    "social_vimeo_url": "",
+    "social_youtube_url": "",
+    "social_instagram_url": "",
+    "social_google_url": "",
+    "social_rss_url": "",
+    "favicon": "",
+    "show_multiple_currencies": false,
+    "currency_format": "money_with_currency_format",
+    "supported_currencies": "GBP CAD USD",
+    "default_currency": "GBP",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#1990C6",
+    "checkout_button_color": "#1990C6",
+    "checkout_error_color": "#ff6d6d",
+    "twittercard_handle": "@",
+    "nav_horizonal_show_title": true,
+    "nav_horizontal_1": "",
+    "nav_horizontal_2": "",
+    "nav_horizontal_3": "",
+    "nav_horizontal_4": "",
+    "col_head_links_bg": "rgba(0,0,0,0)",
+    "col_head_links_alt_bg": "#f30202",
+    "bg_custom": "",
+    "mob_spec_bg_show": true,
+    "head_img_coll_handled": false,
+    "nav_submenu_show_all": false,
+    "menu_coll_img_en": true,
+    "prod_feat_img_background": true,
+    "head_img_prod_which": "feat",
+    "prod_show_desc": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "head_fixed": true,
+          "show_logo_on_homepage": true,
+          "logo": "",
+          "logo_width": "150",
+          "alt_logo": "",
+          "menu_linklist": "main-menu",
+          "nav_horizonal_show_title": true,
+          "nav_horizontal_1": "",
+          "nav_horizontal_2": "",
+          "nav_horizontal_3": "",
+          "nav_horizontal_4": ""
+        }
+      },
+      "1480517523295": {
+        "type": "instagram",
+        "settings": {
+          "title": "Instagram feed",
+          "account": "",
+          "access_token": "",
+          "row_count": "1"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "coll_content_bg_show": false,
+          "coll_show_tags": true,
+          "coll_show_sort": true,
+          "coll_show_feat": false,
+          "coll_layout": "columns",
+          "coll_layout_per_row": "3",
+          "coll_num_prods": "12",
+          "coll_captionmode": "over-hover",
+          "coll_infiniscroll": true
+        }
+      },
+      "1480691271216": {
+        "type": "newsletter-signup",
+        "settings": {
+          "title": "Newsletter signup",
+          "text": "<p>Sign up to our newsletter and we&rsquo;ll keep you up to date with the latest arrivals<\/p>"
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "use_alt_logo": false,
+          "header_background": "",
+          "show_brand": true,
+          "show_type": true,
+          "show_quantity": true,
+          "box_options": true,
+          "description_alignment": "align-center",
+          "cart_add": "add_in_modal",
+          "show_related_products": true,
+          "coll_captionmode": "over-hover"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_terms_show": false,
+          "cart_terms_page": "",
+          "cart_note_show": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "link_list": "footer"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {}
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "show_featured_image": true
+        }
+      },
+      "1482141870755": {
+        "type": "slideshow",
+        "blocks": {
+          "1482141870755-0": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "heading": "Slideshow",
+              "subheading": "Tell your story with images",
+              "button_text": "",
+              "position": "middle",
+              "text_color": "#ffffff",
+              "link_url": ""
+            }
+          },
+          "1482141870755-1": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "heading": "Slideshow",
+              "subheading": "Tell your story with images",
+              "button_text": "",
+              "position": "middle",
+              "text_color": "#ffffff",
+              "link_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "1482141870755-0",
+          "1482141870755-1"
+        ],
+        "settings": {
+          "background": "#423e4e"
+        }
+      },
+      "1482141883577": {
+        "type": "featured-products",
+        "settings": {
+          "title": "Featured collection",
+          "collection": "",
+          "coll_layout": "columns",
+          "coll_layout_per_row": "3",
+          "coll_captionmode": "over-hover"
+        }
+      },
+      "1482141922392": {
+        "type": "featured-text",
+        "settings": {
+          "title": "Rich text",
+          "text": "<p>Use this text to share information about your store with your customers.<\/p>\r\n<p>Describe product, share announcements, or welcome customers to your store.<\/p>",
+          "text_color": "#464654",
+          "text_background": "#ffffff"
+        }
+      },
+      "1483454352367": {
+        "type": "text-beside-image",
+        "settings": {
+          "image": "",
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Use this text to share information about your store with your customers.<\/p>\r\n<p>Describe product, share announcements, or welcome customers to your store.<\/p>",
+          "button_text": "",
+          "button_url": "",
+          "text_color": "#464654",
+          "text_background": "#ffffff",
+          "button_background": "#464654"
+        }
+      },
+      "1483454415373": {
+        "type": "text-over-image",
+        "settings": {
+          "image": "",
+          "title": "Image with text overlay",
+          "subheading": "",
+          "button_text": "",
+          "position": "middle",
+          "text_color": "#ffffff",
+          "link_url": ""
+        }
+      }
+    },
+    "content_for_index": [
+      "1482141870755",
+      "1482141922392",
+      "1482141883577",
+      "1483454352367",
+      "1483454415373",
+      "1480517523295",
+      "1480691271216"
+    ]
+  },
+  "presets": {
+    "Beard": {
+      "col_text": "#6a6561",
+      "col_headings": "#424242",
+      "col_links": "#c4161c",
+      "col_mod_bg": "#231f20",
+      "use_mod_bg_op": true,
+      "col_content_bg": "#ffffff",
+      "use_content_bg_trans": true,
+      "col_head_links": "#c4161c",
+      "col_head_links_alt": "#c4161c",
+      "col_nav_prim": "#ffffff",
+      "col_nav_sec": "#ffffff",
+      "col_btn": "#ffffff",
+      "col_btn_bg": "#c4161c",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#999999",
+      "prod_label_col": "#c4161c",
+      "footer_text": "#ebe9ec",
+      "footer_background": "#231f20",
+      "col_page_bg": "#ebe9ec",
+      "bg_image": "",
+      "bg_image_method": "repeat top center",
+      "font_fam_base": "GWF|Work+Sans|400",
+      "font_fam_headings": "GWF|Cardo|700",
+      "font_fam_nav": "GWF|Cardo|700",
+      "font_fam_logo": "GWF|Work+Sans|600",
+      "font_size_base": "17",
+      "font_size_nav": "50",
+      "font_size_nav_sub": "25",
+      "menu_coll_img_en": true,
+      "nav_horizonal_show_title": true,
+      "nav_horizontal_1": "",
+      "nav_horizontal_2": "",
+      "nav_horizontal_3": "",
+      "nav_horizontal_4": "",
+      "prod_feat_img_background": true,
+      "head_img_prod_which": "feat",
+      "prod_show_desc": true,
+      "twittercard_handle": "@",
+      "favicon": "",
+      "show_multiple_currencies": false,
+      "currency_format": "money_with_currency_format",
+      "supported_currencies": "GBP CAD USD",
+      "default_currency": "GBP"
+    },
+    "Native": {
+      "col_text": "#8a877f",
+      "col_headings": "#8a877f",
+      "col_links": "#fc4855",
+      "col_mod_bg": "#efd7d5",
+      "use_mod_bg_op": true,
+      "col_content_bg": "#ffffff",
+      "use_content_bg_trans": true,
+      "col_head_links": "#8a877f",
+      "col_head_links_alt": "#8a877f",
+      "col_nav_prim": "#8a877f",
+      "col_nav_sec": "#8a877f",
+      "col_btn": "#f4f3f1",
+      "col_btn_bg": "#8a877f",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#8a877f",
+      "prod_label_col": "#fc4855",
+      "footer_text": "#8a877f",
+      "footer_background": "#ffffff",
+      "col_page_bg": "#f4f3f1",
+      "bg_image": "",
+      "bg_image_method": "repeat top center",
+      "font_fam_base": "GWF|Open+Sans|400",
+      "font_fam_headings": "GWF|Work+Sans|400",
+      "font_fam_nav": "GWF|Work+Sans|400",
+      "font_fam_logo": "GWF|Work+Sans|400",
+      "font_size_base": "17",
+      "font_size_nav": "50",
+      "font_size_nav_sub": "25",
+      "menu_coll_img_en": true,
+      "nav_horizonal_show_title": true,
+      "prod_feat_img_background": true,
+      "head_img_prod_which": "feat",
+      "prod_show_desc": true,
+      "twittercard_handle": "@",
+      "favicon": "",
+      "show_multiple_currencies": false,
+      "currency_format": "money_with_currency_format",
+      "supported_currencies": "GBP CAD USD",
+      "default_currency": "GBP"
+    },
+    "Betty": {
+      "col_text": "#6a6561",
+      "col_headings": "#424242",
+      "col_links": "#3f51b5",
+      "col_content_bg": "#ffffff",
+      "use_content_bg_trans": true,
+      "col_page_bg": "#fffdfb",
+      "col_mod_bg": "#6699ac",
+      "use_mod_bg_op": true,
+      "col_head_links": "#434343",
+      "col_head_links_alt": "#fffdfb",
+      "col_nav_prim": "#fffdfb",
+      "col_nav_sec": "#fffdfb",
+      "col_btn": "#fffdfb",
+      "col_btn_bg": "#0a1634",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#8d8d8d",
+      "prod_label_col": "#3f51b5",
+      "footer_text": "#fffdfb",
+      "footer_background": "#0a1634",
+      "bg_custom": "",
+      "bg_image_method": "fill",
+      "mob_spec_bg_show": true,
+      "head_img_coll_handled": false,
+      "font_fam_base": "GWF|Vollkorn|400",
+      "font_fam_headings": "GWF|Karla|700",
+      "font_fam_nav": "GWF|Cardo|700",
+      "font_fam_logo": "GWF|Work+Sans|600",
+      "font_size_base": "17",
+      "font_size_nav": "50",
+      "font_size_nav_sub": "25",
+      "nav_submenu_show_all": false,
+      "menu_coll_img_en": true,
+      "prod_feat_img_background": true,
+      "head_img_prod_which": "feat",
+      "prod_show_desc": true,
+      "twittercard_handle": "@",
+      "favicon": "",
+      "show_multiple_currencies": false,
+      "currency_format": "money_with_currency_format",
+      "supported_currencies": "GBP CAD USD",
+      "default_currency": "GBP"
+    },
+    "Luna": {
+      "col_text": "#636370",
+      "col_headings": "#1a1a1a",
+      "col_links": "#707bee",
+      "col_page_bg": "#ffffff",
+      "col_mod_bg": "#989ca7",
+      "use_mod_bg_op": true,
+      "col_content_bg": "#ffffff",
+      "use_content_bg_trans": true,
+      "col_head_links": "#393944",
+      "col_head_links_alt": "#ffffff",
+      "col_nav_prim": "#ffffff",
+      "col_nav_sec": "#ffffff",
+      "col_btn": "#ffffff",
+      "col_btn_bg": "#393944",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#a1a1a1",
+      "prod_label_col": "#ff5555",
+      "footer_text": "#393944",
+      "footer_background": "#ebebeb",
+      "bg_custom": "",
+      "bg_image_method": "repeat top center",
+      "mob_spec_bg_show": true,
+      "head_img_coll_handled": false,
+      "font_fam_base": "GWF|Roboto|400",
+      "font_fam_headings": "GWF|Crimson+Text|400",
+      "font_fam_nav": "GWF|Crimson+Text|400",
+      "font_fam_logo": "GWF|Crimson+Text|400",
+      "font_size_base": "15",
+      "font_size_nav": "50",
+      "font_size_nav_sub": "25",
+      "nav_submenu_show_all": false,
+      "menu_coll_img_en": true,
+      "prod_feat_img_background": true,
+      "head_img_prod_which": "feat",
+      "prod_show_desc": true,
+      "twittercard_handle": "@",
+      "favicon": "",
+      "show_multiple_currencies": false,
+      "currency_format": "money_with_currency_format",
+      "supported_currencies": "GBP CAD USD",
+      "default_currency": "GBP"
+    }
+  }
+}

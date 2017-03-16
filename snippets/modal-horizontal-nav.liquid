@@ -1,0 +1,18 @@
+{% if modal-horizontal-nav != blank %}
+{% if section.settings.nav_horizonal_show_title %}
+<div>{{ linklists[modal-horizontal-nav].title }}</div>
+{% endif %}
+
+<ul class="cols-four horizontal-nav">
+  {% for link in linklists[modal-horizontal-nav].links %}
+  <li {% if link.active %}class="active"{% endif %}>
+    <a href="{{ link.url }}">
+      {% if link.type == 'collection_link' and link.object.image %}
+      <span class="link-image">{{ link.object.image.src | collection_img_url: '480x480' | img_tag: link.title }}</span>
+      {% endif %}
+      <span>{{ link.title }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

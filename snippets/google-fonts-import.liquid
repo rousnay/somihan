@@ -1,0 +1,12 @@
+{% comment %} Google Fonts {% endcomment %}
+{% assign gfonts = '' %}
+{% assign setting_indexes = 'font_fam_base|font_fam_headings|font_fam_nav|font_fam_logo' | split: '|'%}
+{% for index in setting_indexes %}
+{% if settings[index] contains 'GWF' %}
+{% assign font_family_split = settings[index] | split: '|' %}
+{% capture gfonts %}{{ gfonts }}|{{ font_family_split[1] }}:400,600,700,900{% endcapture %}
+{% endif %}
+{% endfor %}
+{% if gfonts != '' %}
+<link href="//fonts.googleapis.com/css?family={{ gfonts | remove_first: '|' | replace: ' ', '+' | replace: "'", '' }}" rel="stylesheet" type="text/css">
+{% endif %}

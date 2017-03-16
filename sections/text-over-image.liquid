@@ -1,0 +1,109 @@
+<div class="text-over-image section-id-{{ section.id }}">
+  {% if section.settings.link_url != blank %}
+  <a href="{{ section.settings.link_url }}">
+    {% endif %}
+    
+    {% if section.settings.image == blank %}
+    <div class="placeholder-image placeholder--banner {% if section.settings.title != blank or section.settings.subheading != blank %}dark{% endif %}">
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+    {% else %}
+    <img src="{{ section.settings.image | img_url: '2048x' }}" alt="{{ section.settings.image.alt | escape }}" />
+    {% endif %}
+
+    {% if section.settings.title != blank or section.settings.subheading != blank %}
+    <div class="overlay-type overlay position-{{ section.settings.position }}">
+      <div class="inner">
+        <div>
+          <h1 class="line-1 large-heading">{{ section.settings.title }}</h1>
+          <div class="line-2 emphasised">{{ section.settings.subheading }}</div>
+          {% if section.settings.button_text != blank %}
+          <div class="line-3">
+            <span class="button">{{ section.settings.button_text }} <span class="arr">{% include 'svg-rarrow' %}</span></span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    {% if section.settings.link_url != blank %}
+  </a>
+  {% endif %}
+</div>
+
+<style type="text/css">
+  .section-id-{{ section.id }} .overlay-type .line-1,
+  .section-id-{{ section.id }} .overlay-type .line-2 {
+    color: {{ section.settings.text_color }};
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Image with text overlay",
+	"class": "header-overlap-section",
+    "settings": [
+	  {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "1200 x 400px (recommended)"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+		"default": "Image with text overlay"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+      },
+      {
+        "type": "select",
+        "id": "position",
+        "label": "Text position",
+        "options": [
+          {
+            "value": "middle",
+            "label": "Middle"
+          },
+          {
+            "value": "lower-left",
+            "label": "Lower left"
+          }
+        ],
+        "default": "middle"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+		"default": "#ffffff"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Banner link"
+      }
+	],
+	"presets": [
+	  {
+		"name": "Image with text overlay",
+        "category": "Image",
+        "settings": {
+		  "position": "centre",
+          "link_url": ""
+        }
+	  }
+	]
+  }
+{% endschema %}

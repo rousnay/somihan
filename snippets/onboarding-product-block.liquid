@@ -1,0 +1,26 @@
+<div class="product-block caption-{{ section.settings.coll_captionmode }} {{ product_class }}" data-loop-index="{{forloop.index}}">
+  <div class="product-block__inner">
+    <div class="image">
+      <span class="image-inner">
+        {% capture placeholder_svg_name %}product-{{ forloop.index }}{% endcapture %}
+        <div class="placeholder-image">{{ placeholder_svg_name | placeholder_svg_tag }}</div>
+      </span>
+    </div>
+    <div class="caption upper">
+      <span class="title">{{ 'onboarding.product.title' | t }}</span>
+    </div>
+    <div class="caption lower">
+      <span class="price">
+        <span class="theme-money">{{ 1234 | money }}</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+{% if product_class contains 'quarter' %}
+{% cycle 'products': '','','','<div class="er"></div>' %}
+{% elsif product_class contains 'third' %}
+{% cycle 'products': '','','<div class="er"></div>' %}
+{% elsif product_class contains 'half' %}
+{% cycle 'products': '','<div class="er"></div>' %}
+{% endif %}

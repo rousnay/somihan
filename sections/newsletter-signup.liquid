@@ -1,0 +1,79 @@
+{% comment %}
+You may enter a MailChimp form action URL between the single-quotes below
+Help for finding that may be found here: http://cleanthemes.co.uk/pages/get-a-mailchimp-form-action-url
+{% endcomment %}
+
+{% assign form_action = '' %}
+
+
+<div class="section-spacing container align-center">
+
+  <h2 class="h1 home-major-heading">{{ section.settings.title }}</h2>
+
+  <div class="signup-form">
+    {% if form_action == blank %}
+    {% form 'customer' %}
+    {% if form.posted_successfully? %}
+    <div class="signup-form__response">
+      <h4>{{ 'general.signup.post_success' | t }}</h4>
+    </div>
+    {% else %}
+    
+    <div class="rte align-center emphasised">{{ section.settings.text }}</div>
+
+    {% if form.errors %}
+    <div class="signup-form__response">
+      {% for field in form.errors %}
+      <p class="error">{{ field | capitalize }} - {{ form.errors.messages[field] }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    
+    <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter"/>
+    <div class="inline-mini-form">
+      <input type="email" aria-label="Email" class="required" value="" id="mailinglist_email" name="contact[email]" /><button class="compact" type="submit">{{ 'general.signup.subscribe' | t }} <span class="button__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></span></button>
+    </div>
+    {% endif %}
+    {% endform %}
+
+    {% else %}
+    
+    <div class="rte align-center emphasised">{{ section.settings.text }}</div>
+    
+    <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+      <div class="inline-mini-form">
+        <input type="email" class="required email" aria-label="Email" value="" id="mce-EMAIL" required name="EMAIL" /><button class="compact" name="subscribe" type="submit">{{ 'general.signup.subscribe_html' | t }} <span class="button__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></span></button>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Newsletter signup",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+		"default": "Newsletter signup"
+      },
+	  {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+		"default": "<p>Sign up to our newsletter and we&rsquo;ll keep you up to date with the latest arrivals</p>"
+      }
+	],
+	"presets": [
+	  {
+		"name": "Newsletter signup",
+        "category": "Promotional",
+        "settings": {}
+	  }
+	]
+  }
+{% endschema %}

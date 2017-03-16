@@ -1,0 +1,60 @@
+<div class="section-id-{{ section.id }} cf">
+  <div class="double-section-spacing">
+    <div class="central wide">
+      <div class="content transparent align-center inherit-colors">
+        <h1 class="feature-header large-heading">{{ section.settings.title }}</h1>
+        <div class="rte align-center emphasised">{{ section.settings.text }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  .section-id-{{ section.id }} {
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.text_background }};
+  }
+  .section-id-{{ section.id }} .feature-header:after {
+    border-top-color: {{ section.settings.text_color }};
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Rich text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+		"default": "Rich text"
+      },
+	  {
+        "type": "richtext",
+        "id": "text",
+        "label": "Content",
+		"default": "<p>Use this text to share information about your store with your customers.</p><p>Describe product, share announcements, or welcome customers to your store.</p>"
+      },
+	  {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+		"default": "#464654"
+      },
+	  {
+        "type": "color",
+        "id": "text_background",
+        "label": "Background color",
+		"default": "#ffffff"
+      }
+    ],
+	"presets": [
+	  {
+		"name": "Rich text",
+        "category": "Text",
+        "settings": {}
+	  }
+	]
+  }
+{% endschema %}
