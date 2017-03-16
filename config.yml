@@ -3,6 +3,7 @@ development:
   theme_id: "162580361"
   store: somihan.myshopify.com
 
-  ignores:
-    - .git
-    - _assets
+  ignore_files:
+    - .git/*
+    - .gitignore
+    - _assets/*
