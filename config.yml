@@ -4,6 +4,7 @@ development:
   store: somihan.myshopify.com
 
   ignore_files:
+    - README.md
     - .git/*
     - .gitignore
     - _assets/*
