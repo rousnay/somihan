@@ -2,3 +2,7 @@ development:
   password: 9a40d082c26f14a4823f2b91ed23055f
   theme_id: "162580361"
   store: somihan.myshopify.com
+
+  ignores:
+    - .git
+    - _assets
