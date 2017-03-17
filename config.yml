@@ -8,3 +8,4 @@ development:
     - .git/*
     - .gitignore
     - _assets/*
+    - node_modules/*
