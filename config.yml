@@ -7,5 +7,7 @@ development:
     - README.md
     - .git/*
     - .gitignore
+    - package.json
+    - Gruntfile.js
     - _assets/*
     - node_modules/*
