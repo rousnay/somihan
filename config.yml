@@ -4,10 +4,11 @@ development:
   store: somihan.myshopify.com
 
   ignore_files:
-    - README.md
-    - .git/*
-    - .gitignore
-    - package.json
-    - Gruntfile.js
     - _assets/*
     - node_modules/*
+    - .git/*
+    - .gitignore
+    - README.md
+    - Gruntfile.js
+    - package.json
+    - tag_apis.liquid
