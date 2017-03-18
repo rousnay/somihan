@@ -3938,3 +3938,49 @@ $page-top-padding-mobile: 10px;
 /*************    |     ENTER YOUR CUSTOM CODE BELOW HERE       |   *************/
 /*************    ---                   ---                   ---   *************/
 
+.mc-hide-scrolls{
+  overflow:hidden;
+}
+
+body .mc-cycle {
+  height:100%;
+  left:0;
+  overflow:hidden;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:-1;
+}
+
+div.mc-image {
+  /*NOTE: Mozilla flickers when fading and using 'all', so we have to be specific with what property we want to transition:
+    If you are using fading transitions, use 'opacity: */
+  -webkit-transition: opacity 1s ease-in-out; 
+  -moz-transition: opacity 1s ease-in-out; 
+  -o-transition: opacity 1s ease-in-out; 
+  transition: opacity 1s ease-in-out;
+  
+  /*If you are using horizontal slide transitions, use the following CSS:
+  -webkit-transition: left 1s ease-in-out; 
+  -moz-transition: left 1s ease-in-out; 
+  -o-transition: left 1s ease-in-out; 
+  transition: left 1s ease-in-out;*/
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  height:100%;
+  overflow:hidden;
+  width:100%;
+}
+
+.mc-old-browser .mc-image {
+  overflow:hidden;
+}
+
+
+
+
