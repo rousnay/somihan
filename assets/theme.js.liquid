@@ -1477,3 +1477,81 @@ jQuery.browser = {};
           
         // To show it is dynamic html text
         jQuery('.in-slide-content').delay(1200).fadeIn();
+
+
+
+$(document).ready(function(){
+
+var owl = jQuery('.owl-carousel');
+  owl.owlCarousel({
+  items : 5,
+  loop  : true,
+  lazyLoad: true,
+  autoplay:true,
+  animateOut:'fadeOut',
+  autoplayTimeout:2000,
+  autoplayHoverPause:true,
+  responsive:{
+        0:{
+            items:2
+        },
+        400:{
+            items:2
+        },
+        500:{
+            items:3
+        },
+        700:{
+            items:4
+        },
+        1000:{
+            items:5
+        }
+    }
+  });
+
+{% comment %}owl.on('mousewheel', '.owl-stage', function (e) {
+    if (e.deltaY>0) {
+        owl.trigger('next.owl');
+    } else {
+        owl.trigger('prev.owl');
+    }
+    e.preventDefault();
+});{% endcomment %}
+
+});
+
+
+function top_adjustment() {
+
+$('.owl-carousel.owl-loaded').css("display","block");
+
+var sliderHeight = 0;
+var sliderHalfHeight = 0;
+var containerHeight = 0;
+var sliderPosition = 0;
+var sliderTop = 0;
+
+sliderHeight =  $('.owl-carousel .owl-item:first img').height();
+
+sliderHalfHeight = sliderHeight/2;
+
+containerHeight = $( window ).height();
+
+sliderPosition = (containerHeight/2) - sliderHalfHeight;
+
+sliderTop = parseInt(sliderPosition, 10);
+
+$('.owl-carousel').css("top",sliderTop);
+
+console.log(sliderPosition);
+
+}
+
+$( window ).load(function() {
+   top_adjustment();
+});
+
+$( window ).resize(function() {
+    top_adjustment();
+});
