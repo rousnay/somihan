@@ -1555,3 +1555,55 @@ $( window ).load(function() {
 $( window ).resize(function() {
     top_adjustment();
 });
+
+
+
+
+
+  /******************************
+   Sidebar Push Slide
+   ******************************/
+   function sideHeaderInit() {
+    var sideheader = jQuery('#sideheader');
+    if (sideheader.length) {
+      sideheader.perfectScrollbar();
+      //sideheader.hide();
+      jQuery('.sideheader-trigger a').on('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if ($(sideheader).is('.is-visible')) {
+            $(sideheader).removeClass('is-visible');
+            sideheader.hide(900);
+        }
+        else{
+            $(sideheader).addClass('is-visible');
+            sideheader.show();
+        }
+
+
+        jQuery('body').toggleClass('sideheader-visible');
+      });
+
+      jQuery(document).on('click', function(e) {
+
+        var _element = sideheader;
+
+        if (!_element.is(e.target) // if the target of the click isn't the container...
+          && _element.has(e.target).length === 0 ) // ... nor a descendant of the container
+        {
+          sideheader.removeClass('is-visible');
+          sideheader.hide(900);
+          jQuery('body').removeClass('sideheader-visible');
+        }
+      });
+
+      jQuery(window).on('scroll', function(e) {
+        sideheader.removeClass('is-visible');
+        sideheader.hide(900);
+        jQuery('body').removeClass('sideheader-visible');
+      });
+    };
+   }
+   /* Calls Sideheader Init script  */
+   sideHeaderInit();

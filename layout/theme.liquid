@@ -72,6 +72,18 @@
 
 <body id="page-{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template contains 'customers' %} template-customer-area{% endif %}{% if logo_html contains 'img' %} has-logo{% endif %}" >
 
+
+  <div id="sideheader">
+    <div class="sidebar-inner">
+      <div class="push_sidebar">
+          <h1>This is sidebar</h1>
+      </div>
+    </div>
+  </div>
+
+
+<div class="site-content">
+  
   {% section 'header' %}
   
   {% include 'page-background' %}
@@ -81,6 +93,9 @@
   </div>
   
   {% section 'footer' %}
+  
+
+</div>
   
   <!-- Search form -->
   <div id="search-modal" class="theme-modal" tabindex="-1">
