@@ -35,14 +35,14 @@
   {% comment %} ACTUAL HEADER {% endcomment %}
   <div id="site-control" class="site-control inline icons {% if section.settings.head_fixed %}fixed{% endif %}">
     <span class="links">
+      {% unless template contains 'index' and section.settings.show_logo_on_homepage == false %}
+      {{ logo_html }}
+      {% endunless %}
+
       <a class="menu" href="#page-menu" data-modal-nav-toggle>
         {% include 'svg-menu' %}
         <span class="text-link">{{ 'layout.navigation.menu' | t }}</span>
       </a>
-
-      {% unless template contains 'index' and section.settings.show_logo_on_homepage == false %}
-      {{ logo_html }}
-      {% endunless %}
 
       <a class="cart" href="/cart">
         {% include 'svg-cart' %}<div>{{ cart.item_count }}</div>

@@ -2962,7 +2962,9 @@ $page-bottom-padding: 100px;
 }
 
 .logo {
-  position: relative;
+  position: absolute;
+    left: 0;
+    top: 0;
   font-family: $logo-font-family;
   font-weight: $logo-font-weight;
   font-size: $logo-font-size;
@@ -2970,8 +2972,6 @@ $page-bottom-padding: 100px;
   color: $logo-col;
   img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     @include vendor-prefix(transition, opacity 400ms);
   }
   .alt-logo {
@@ -3068,7 +3068,7 @@ $menu-icon-size: 30px;
   }
   
   .menu {
-    left: $edge-gutter;
+    left: 200px;
     margin-top: -15px;
     svg {
       width: $menu-icon-size;
