@@ -190,40 +190,49 @@ Change 'false' to 'true' on the line below, to show them.
   </div>
 
 
+  <p class="all-variants" style="visibility: hidden;">
+    {% for variant in product.variants %}
+    {% if variant.available %}
+    {{ variant.title }},
+    {% endif %}
+    {% endfor %}
+  </p>
 
-  {% if collection.previous_product or collection.next_product %}
-  <div class="other-products wide-container section-spacing">
-    <div class="other-products__label">{{ 'products.product.other_products' | t }}</div>
-    <div class="other-products__products">
-      {% if collection.previous_product %}
-      <span class="other-products__product previous" data-fill-with-product="{{ collection.previous_product | split: '/' | last }}">
-        <script type="text/template">
+
+
+{% if collection.previous_product or collection.next_product %}
+<div class="other-products wide-container section-spacing">
+  <div class="other-products__label">{{ 'products.product.other_products' | t }}</div>
+  <div class="other-products__products">
+    {% if collection.previous_product %}
+    <span class="other-products__product previous" data-fill-with-product="{{ collection.previous_product | split: '/' | last }}">
+      <script type="text/template">
         <a href="{{ collection.previous_product }}" title="[encode:title]">
           <div class="other-products__product__image"><img src="[img:300x]"></div>
           <div class="other-products__product__arrow"><span class="arr">{% include 'svg-larrow' %}</span></div>
           <div class="other-products__product__title h5">{{ 'products.product.previous' | t }}</div>
         </a>
-        </script>
-      </span>
-      {% endif %}
-      {% if collection.next_product %}
-      <span class="other-products__product next" data-fill-with-product="{{ collection.next_product | split: '/' | last }}">
-        <script type="text/template">
+      </script>
+    </span>
+    {% endif %}
+    {% if collection.next_product %}
+    <span class="other-products__product next" data-fill-with-product="{{ collection.next_product | split: '/' | last }}">
+      <script type="text/template">
         <a href="{{ collection.next_product }}" title="[encode:title]">
           <div class="other-products__product__title h5">{{ 'products.product.next' | t }}</div>
           <div class="other-products__product__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></div>
           <div class="other-products__product__image"><img src="[img:300x]"></div>
         </a>
-        </script>
-      </span>
-      {% endif %}
-    </div>
+      </script>
+    </span>
+    {% endif %}
   </div>
-  {% endif %}
+</div>
+{% endif %}
 
-  {% if section.settings.show_related_products %}
-  {% include 'related-products' %}
-  {% endif %}
+{% if section.settings.show_related_products %}
+{% include 'related-products' %}
+{% endif %}
 </div>
 
 {% if section.settings.header_background != blank %}
@@ -252,131 +261,131 @@ Change 'false' to 'true' on the line below, to show them.
 
 
 {% schema %}
+{
+  "name": "Product pages",
+  "class": "header-overlap-section",
+  "settings": [
   {
-    "name": "Product pages",
-	"class": "header-overlap-section",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "use_alt_logo",
-		"default": false,
-        "label": "Use alternate logo over gallery"
-      },
-      {
-        "type": "select",
-        "id": "header_background",
-		"default": "",
-        "label": "Header background tint",
-		"options": [
-			{
-				"label": "None",
-				"value": ""
-			},
-			{
-				"label": "Light",
-				"value": "0.20"
-			},
-			{
-				"label": "Medium",
-				"value": "0.5"
-			},
-			{
-				"label": "Heavy",
-				"value": "0.75"
-			}
-		]
-      },
-      {
-        "type": "checkbox",
-        "id": "show_brand",
-		"default": true,
-        "label": "Show vendor"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_type",
-		"default": true,
-        "label": "Show type"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_quantity",
-		"default": true,
-        "label": "Show quantity input"
-      },
-      {
-        "type": "checkbox",
-        "id": "box_options",
-		"default": true,
-        "label": "Use box-options",
-        "info": "Instead of dropdowns"
-      },
-      {
-        "type": "select",
-        "id": "description_alignment",
-		"default": "align-center",
-        "label": "Description alignment",
-		"options": [
-			{
-				"label": "Left",
-				"value": ""
-			},
-			{
-				"label": "Middle",
-				"value": "align-center"
-			}
-		]
-      },
-      {
-        "type": "select",
-        "id": "cart_add",
-        "label": "Cart type",
-		"default": "",
-        "options": [
-          {
-            "value": "",
-            "label": "Stay on the same page"
-          },
-          {
-            "value": "add_in_modal",
-            "label": "Modal"
-          },
-          {
-            "value": "go_to_cart",
-            "label": "Page"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Related products"
-      },
-      {
-        "type": "paragraph",
-        "content": "Show other products from the same collection, underneath the product details"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_related_products",
-        "label": "Show",
-        "default": false
-      },
-      {
-        "type": "select",
-        "id": "coll_captionmode",
-        "label": "Title and price layout",
-		"default": "over-hover",
-        "options": [
-          {
-            "value": "over-hover",
-            "label": "Overlay - on hover"
-          },
-          {
-            "value": "under",
-            "label": "Underneath the image"
-          }
-        ]
-      }
-	]
-  }
+  "type": "checkbox",
+  "id": "use_alt_logo",
+  "default": false,
+  "label": "Use alternate logo over gallery"
+},
+{
+  "type": "select",
+  "id": "header_background",
+  "default": "",
+  "label": "Header background tint",
+  "options": [
+  {
+  "label": "None",
+  "value": ""
+},
+{
+  "label": "Light",
+  "value": "0.20"
+},
+{
+  "label": "Medium",
+  "value": "0.5"
+},
+{
+  "label": "Heavy",
+  "value": "0.75"
+}
+]
+},
+{
+  "type": "checkbox",
+  "id": "show_brand",
+  "default": true,
+  "label": "Show vendor"
+},
+{
+  "type": "checkbox",
+  "id": "show_type",
+  "default": true,
+  "label": "Show type"
+},
+{
+  "type": "checkbox",
+  "id": "show_quantity",
+  "default": true,
+  "label": "Show quantity input"
+},
+{
+  "type": "checkbox",
+  "id": "box_options",
+  "default": true,
+  "label": "Use box-options",
+  "info": "Instead of dropdowns"
+},
+{
+  "type": "select",
+  "id": "description_alignment",
+  "default": "align-center",
+  "label": "Description alignment",
+  "options": [
+  {
+  "label": "Left",
+  "value": ""
+},
+{
+  "label": "Middle",
+  "value": "align-center"
+}
+]
+},
+{
+  "type": "select",
+  "id": "cart_add",
+  "label": "Cart type",
+  "default": "",
+  "options": [
+  {
+  "value": "",
+  "label": "Stay on the same page"
+},
+{
+  "value": "add_in_modal",
+  "label": "Modal"
+},
+{
+  "value": "go_to_cart",
+  "label": "Page"
+}
+]
+},
+{
+  "type": "header",
+  "content": "Related products"
+},
+{
+  "type": "paragraph",
+  "content": "Show other products from the same collection, underneath the product details"
+},
+{
+  "type": "checkbox",
+  "id": "show_related_products",
+  "label": "Show",
+  "default": false
+},
+{
+  "type": "select",
+  "id": "coll_captionmode",
+  "label": "Title and price layout",
+  "default": "over-hover",
+  "options": [
+  {
+  "value": "over-hover",
+  "label": "Overlay - on hover"
+},
+{
+  "value": "under",
+  "label": "Underneath the image"
+}
+]
+}
+]
+}
 {% endschema %}

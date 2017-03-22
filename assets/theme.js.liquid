@@ -731,11 +731,11 @@ theme.OptionManager = new function(){
   };
   
   _.strings = {
-    priceNonExistent: {{ 'products.variant.non_existent' | t | json }},
+    priceNonExistent: {{ 'products.variant.non_choosen' | t | json }},
     priceSoldOut: '[PRICE] <span class="sold-out">'+{{ 'products.variant.no_stock' | t | json }}+'</span>',
     buttonDefault: {{ 'products.product.add_to_cart' | t | json }},
     buttonNoStock: {{ 'products.variant.no_stock' | t | json }},
-    buttonNoVariant: {{ 'products.variant.non_existent' | t | json }}
+    buttonNoVariant: {{ 'products.variant.non_choosen' | t | json }}
   };
   
   _._getString = function(key, variant){
@@ -1544,7 +1544,7 @@ sliderTop = parseInt(sliderPosition, 10);
 
 $('.owl-carousel').css("top",sliderTop);
 
-console.log(sliderPosition);
+// console.log(sliderPosition);
 
 }
 
@@ -1605,3 +1605,63 @@ $( window ).resize(function() {
    }
    /* Calls Sideheader Init script  */
    sideHeaderInit();
+
+
+  /******************************
+   Product Variant
+   ******************************/
+
+
+$(document).ready(function(){
+
+    var varStr = $('.all-variants').text();
+
+    varStr = varStr.replace(/(\r\n|\n|\r)/gm,"");
+
+    String.prototype.replaceAll = function(target, replacement) {
+      return this.split(target).join(replacement);
+    };
+
+    varStr = varStr.replaceAll(' / ', ':')
+
+    varStr = varStr.replace(/ +/g, ' ');
+
+    varStr = varStr.slice(1, -2);
+
+    var obj = varStr.split(',').reduce( (a,b) => {    // split the string on comma
+    var parts = b.trim().split(':');           // split the parts on colon
+    if (! (parts[0] in a) ) a[parts[0]] = [];  // if no key, create an array
+    a[parts[0]].push(parts[1]);                // push the value to the array
+    return a;                                  // return the object for next iteration
+  }, {})
+
+
+
+
+$('#clickyboxes-option-size li a').hide();
+
+for (var i = 0, len = obj[Object.keys(obj)[0]].length; i < len; i++) {
+    $('#clickyboxes-option-size li a:contains(' + obj[Object.keys(obj)[0]][i] + ')').show();
+}
+
+
+var optItem = $('#clickyboxes-option-item a');
+
+$(optItem).click(function(event) {
+
+itemText = $(this).text();
+
+var activeArr = obj[itemText];
+
+console.log(activeArr);
+
+$('#clickyboxes-option-size li a').hide();
+
+for (var i = 0, len = activeArr.length; i < len; i++) {
+    $('#clickyboxes-option-size li a:contains(' + activeArr[i] + ')').show();
+    // $('#clickyboxes-option-size li a:contains(' + activeArr[0] + ')').addClass('active');
+}
+    // $('.product-detail__form__action button').removeAttr('disabled');
+});
+
+});

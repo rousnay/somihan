@@ -273,6 +273,7 @@
     "variant": {
       "out_of_stock": "Out of stock",
       "non_existent": "Unavailable",
+      "non_choosen": "Please Choose the size",
       "no_stock": "Sold out"
     }
   },
