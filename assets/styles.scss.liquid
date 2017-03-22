@@ -1603,8 +1603,12 @@ hr {
   width: 100%;
   height: 100%;
   z-index: 20;
+  background: #ba0c2f;
+  background: rgba(186, 12, 47, 0.9);
+  /*
   background: {{ settings.col_mod_bg }};
   background: rgba({{ settings.col_mod_bg }}, {% if settings.use_mod_bg_op %}0.9{% else %}1{% endif %});
+  */
   color: {{ settings.col_nav_prim }};
   cursor: pointer;
   
@@ -2962,8 +2966,8 @@ $page-bottom-padding: 100px;
 
 .logo {
   position: absolute;
-    left: 0;
-    top: 0;
+  left: 20px;
+  top: 20px;
   font-family: $logo-font-family;
   font-weight: $logo-font-weight;
   font-size: $logo-font-size;
@@ -3010,7 +3014,7 @@ $menu-icon-size: 30px;
   left: 0;
   right: 0;
   top: 0;
-  padding-top: 25px;
+  padding-top: 80px;
   padding-bottom: 25px;
   z-index: 25;
   text-align: center;
@@ -3020,6 +3024,7 @@ $menu-icon-size: 30px;
     pointer-events: auto;
     display: inline-block;
     color: $header-icon-col;
+    text-transform: uppercase;
     vertical-align: middle;
   }
   
@@ -3051,7 +3056,7 @@ $menu-icon-size: 30px;
   }
   
  .account {
-    right: 110px;
+    right: 140px;
     margin-top: -$header-icon-size/2;
       font-family: $body-font-family;
       font-weight: $body-font-weight;
@@ -3516,6 +3521,7 @@ footer.giftcard-footer {
   .site-control {
     padding-top: 15px;
     padding-bottom: 15px;
+        padding-top: 80px;
   }
   
   .product-block.caption-over-hover {
@@ -4011,12 +4017,18 @@ div.mc-image {
 
 .owl-carousel {
   position: absolute!important;
+  background-color: #fff;
   display: none;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
   /* position relative and z-index fix webkit rendering fonts issue */
-  position: relative;
-  z-index: 1; }
+
+  z-index: 1; 
+  -webkit-box-shadow: -2px 14px 23px 1px rgba(0,0,0,0.33);
+-moz-box-shadow: -2px 14px 23px 1px rgba(0,0,0,0.33);
+box-shadow: -2px 14px 23px 1px rgba(0,0,0,0.33);
+
+  }
   .owl-carousel .owl-stage {
     position: relative;
     -ms-touch-action: pan-Y;
@@ -4193,12 +4205,13 @@ a{
   z-index: 999;
 }
 img {
--webkit-filter: grayscale(100%);
+-webkit-filter:  grayscale(100%);
+filter:  grayscale(100%);
 
 }
 
   .slider-overlay{
-    background-color: #f00;
+    background-color: #ba0c2f;
     position: absolute;
     top: 0;
     height: 100%;
@@ -4209,17 +4222,21 @@ img {
 }
 
   &:hover{
-  img {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
-    -webkit-filter: saturate(2);
-    filter: saturate(2);
-    -webkit-filter: contrast(150%);
-    filter: contrast(150%);
-}
       .slider-overlay{
-    opacity: 0.5;
+    opacity: 0.65;
 }
+
+.owl-item-color img {
+-webkit-filter: contrast(100%) grayscale(0%);
+filter: contrast(100%) grayscale(0%);
+
+}
+
+.owl-item-color .slider-overlay{
+    opacity: 0;
+}
+
+
   }
 }
 
@@ -4267,6 +4284,11 @@ img {
 
 #page-somi-han-london {
     background: #fff;
+    .header-overlap-section{
+    padding: 150px 50px;
+}
+
+
 #shopify-section-header, 
  #shopify-section-footer {
     display: none;
@@ -4286,6 +4308,16 @@ img {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+}
+
+@media screen and (max-width: 767px) {
+  
+#page-somi-han-london {
+    .header-overlap-section{
+    padding: 60px 50px;
+}
+}
+
 }
 
 /* END Holiday home page */

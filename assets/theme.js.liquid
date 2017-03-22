@@ -1455,7 +1455,7 @@ jQuery.browser = {};
                 $('#maximage').maximage({
           cycleOptions: {
             fx: 'fade',
-            speed: 1000, // Has to match the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
+            speed: 5000, // Has to match the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
             pause: 1,
             after: function(last,current){
               if(!$.browser.msie){
@@ -1489,7 +1489,7 @@ var owl = jQuery('.owl-carousel');
   lazyLoad: true,
   autoplay:true,
   animateOut:'fadeOut',
-  autoplayTimeout:2000,
+  autoplayTimeout:3000,
   autoplayHoverPause:true,
   responsive:{
         0:{
@@ -1505,7 +1505,7 @@ var owl = jQuery('.owl-carousel');
             items:4
         },
         1000:{
-            items:5
+            items:6
         }
     }
   });
@@ -1534,7 +1534,7 @@ var sliderTop = 0;
 
 sliderHeight =  $('.owl-carousel .owl-item:first img').height();
 
-sliderHalfHeight = sliderHeight/2;
+sliderHalfHeight = sliderHeight/3;
 
 containerHeight = $( window ).height();
 

@@ -7,7 +7,7 @@
     "use_mod_bg_op": true,
     "col_content_bg": "#ffffff",
     "use_content_bg_trans": true,
-    "col_head_links": "#434343",
+    "col_head_links": "#000000",
     "col_head_links_alt": "#fffdfb",
     "col_nav_prim": "#fffdfb",
     "col_nav_sec": "#fffdfb",
