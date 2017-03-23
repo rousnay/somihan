@@ -4232,6 +4232,15 @@ filter: contrast(100%) grayscale(0%);
 
 }
 
+{% comment %}img{
+-webkit-transform:scale(1.1); /*Webkit: Scale up image to 1.2x original size*/
+-moz-transform:scale(1.1); /*Mozilla scale version*/
+-o-transform:scale(1.1); /*Opera scale version*/
+box-shadow:0px 0px 30px gray; /*CSS3 shadow: 30px blurred shadow all around image*/
+-webkit-box-shadow:0px 0px 30px gray; /*Safari shadow version*/
+-moz-box-shadow:0px 0px 30px gray; /*Mozilla shadow version*/
+}
+{% endcomment %}
 .owl-item-color .slider-overlay{
     opacity: 0;
 }

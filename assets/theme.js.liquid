@@ -1455,7 +1455,7 @@ jQuery.browser = {};
                 $('#maximage').maximage({
           cycleOptions: {
             fx: 'fade',
-            speed: 5000, // Has to match the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
+            speed: 4000, // Has to match the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
             pause: 1,
             after: function(last,current){
               if(!$.browser.msie){
@@ -1509,15 +1509,6 @@ var owl = jQuery('.owl-carousel');
         }
     }
   });
-
-{% comment %}owl.on('mousewheel', '.owl-stage', function (e) {
-    if (e.deltaY>0) {
-        owl.trigger('next.owl');
-    } else {
-        owl.trigger('prev.owl');
-    }
-    e.preventDefault();
-});{% endcomment %}
 
 });
 
@@ -1638,7 +1629,16 @@ $(document).ready(function(){
 
 
 
+$.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+
+
 $('#clickyboxes-option-size li a').hide();
+$('.product-detail__detail .description').hide();
+$('.product-detail__detail .description').eq(0).show();
 
 for (var i = 0, len = obj[Object.keys(obj)[0]].length; i < len; i++) {
     $('#clickyboxes-option-size li a:contains(' + obj[Object.keys(obj)[0]][i] + ')').show();
@@ -1656,12 +1656,22 @@ var activeArr = obj[itemText];
 console.log(activeArr);
 
 $('#clickyboxes-option-size li a').hide();
+$('.product-detail__detail .description').hide();
 
 for (var i = 0, len = activeArr.length; i < len; i++) {
     $('#clickyboxes-option-size li a:contains(' + activeArr[i] + ')').show();
-    // $('#clickyboxes-option-size li a:contains(' + activeArr[0] + ')').addClass('active');
+    
 }
-    // $('.product-detail__form__action button').removeAttr('disabled');
+
+var textHolding = $('.description b:contains("' + itemText + '")');
+
+$(textHolding).parent().show();
+
 });
+
+
+
+//zoom
+
 
 });
