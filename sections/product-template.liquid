@@ -9,7 +9,7 @@ Change 'false' to 'true' on the line below, to show them.
 {% assign show_product_reviews = false %}
 
 {% assign variant = product.selected_or_first_available_variant  %}
-{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+{% assign featured_image = product.selected.featured_image | default: product.featured_image %}
 <div data-section-type="product-template">
   <div class="theme-gallery {% if section.settings.use_alt_logo %}needs-alt-logo{% endif %}">
     <div class="theme-viewport swiper-container">
