@@ -35,29 +35,34 @@
   {% comment %} ACTUAL HEADER {% endcomment %}
   <div id="site-control" class="site-control inline icons {% if section.settings.head_fixed %}fixed{% endif %}">
     <span class="links">
+
+
+    <div class="links-left">
       {% unless template contains 'index' and section.settings.show_logo_on_homepage == false %}
       {{ logo_html }}
       {% endunless %}
+    </div>
+
+
+    <div class="links-right">
 
       <a class="menu" href="#page-menu" data-modal-nav-toggle>
         {% include 'svg-menu' %}
         <span class="text-link">Collections</span>
       </a>
-<div class="sideheader-trigger">
-  
-        <a class="account ink ask_a_question" href="#">
+      
+        <a class="account ink ask_a_question sideheader-trigger" href="#">
         <span class="text-link">Account</span>
-        
       </a>
-</div>
-
 
       <a class="cart" href="#">
         {% include 'svg-cart' %}<div>{{ cart.item_count }}</div>
-
         <span class="text-link">{{ 'layout.navigation.cart' | t }} {% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</span>
-
       </a>
+
+</div>
+
+
     </span>
   </div>
 
