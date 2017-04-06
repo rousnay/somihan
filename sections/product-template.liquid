@@ -55,14 +55,21 @@ Change 'false' to 'true' on the line below, to show them.
       </div>
 
       <div class="product-detail__title-and-price">
-        <h1 class="product-title" itemprop="name">{{ product.title }}</h1>
-
-        <div class="price-area emphasised">
-          {% if variant.compare_at_price > variant.price %}
-          <span class="was-price theme-money">{{ variant.compare_at_price | money }}</span>
-          {% endif %}
-          <span class="price theme-money">{{ variant.price | money }}</span>
+        <h1 class="product-title" itemprop="name">{{ product.title }}</h1>       
+        
+        {% for option in product.options_with_values %}
+        {% if option.name contains 'Item' %}
+        <div class="selector-wrapper product-param">                
+          <select id="option-{{ option.name | handle }}-other" {% if section.settings.box_options %}class="noreplace" data-make-box{% endif %}>
+            {% for value in option.values %} 
+            <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>{{ value | replace: '"',''  | split: '\' | last}}  \</option>
+            {% endfor %}
+          </select> 
+          <div class="{{ value | escape }}"></div>
         </div>
+        {%endif%}
+        {% endfor %}
+        
       </div>
     </div>
 
@@ -82,6 +89,18 @@ Change 'false' to 'true' on the line below, to show them.
                   {% endfor %}
                 </select>
               </div>
+              
+              
+              {% if forloop.index == 1 %}
+
+              <div class="product-detail__detail sh-product-details" itemprop="description" id="afteritemdescription">
+                <div class="rte {{ section.settings.description_alignment }}">
+                  {{ product.description}}
+                </div>
+              </div>
+              {% endif %}
+              
+              
               {% endfor %}
             </div>
 
@@ -97,8 +116,22 @@ Change 'false' to 'true' on the line below, to show them.
               {% for option in product.options %}
               {% if option != 'Title' %}
               {% assign opt_idx = 'option' | append: forloop.index %}
-              {{ option }}: {{ product.variants.first[opt_idx] }}<br/>
+
+              <span class="sh-single-item">{{ option }}</span><br/> <span class="sh-single-option">{{ product.variants.first[opt_idx] }}</span><br/><br/>
+
               {% endif %}
+
+
+              {% if forloop.index == 1 %}
+
+              <div class="product-detail__detail sh-product-details" itemprop="description" id="afteritemdescription">
+                <div class="rte {{ section.settings.description_alignment }}">
+                  {{ product.description}}
+                </div>
+              </div>
+              {% endif %}
+
+
               {% endfor %}
             </div>
             {% endunless %}
@@ -106,6 +139,7 @@ Change 'false' to 'true' on the line below, to show them.
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
             {% endif %}
 
+            <label class="qty">QUANTITY</label>
             {% if section.settings.show_quantity %}
             <div class="quantity-wrapper">
               <a href="#" data-quantity="down">-</a>
@@ -115,6 +149,14 @@ Change 'false' to 'true' on the line below, to show them.
             {% else %}
             <input type="hidden" id="quantity" name="quantity" value="1" />
             {% endif %}
+            <div class="price-area emphasised">
+              {% if variant.compare_at_price > variant.price %}
+              <span class="was-price theme-money">{{ variant.compare_at_price | money }}</span>
+              {% endif %}
+              
+              <span class="price theme-money">{{ variant.price  | money }}</span>
+              
+            </div>
           </div>
 
           <div class="product-detail__form__action">
@@ -141,16 +183,7 @@ Change 'false' to 'true' on the line below, to show them.
       {% endif %}
     </div>
 
-    <div class="align-center product-detail__detail">
-      {% include 'social-sharing' with product %}
-    </div>
 
-
-    <div class="product-detail__detail" itemprop="description">
-      <div class="rte {{ section.settings.description_alignment }}">
-        {{ product.description }}
-      </div>
-    </div>
 
     <div class="product-detail__detail product-detail__brandrow align-center">
       {% if section.settings.show_brand %}
@@ -165,7 +198,7 @@ Change 'false' to 'true' on the line below, to show them.
       {% else %}
       {% assign vendor_url = product.vendor | url_for_vendor %}
       {% endif %}
-      <span class="brand" itemprop="brand">{{ product.vendor | link_to: vendor_url }}</span>
+      
       {% endif %}
 
       {% if section.settings.show_type %}
@@ -189,7 +222,6 @@ Change 'false' to 'true' on the line below, to show them.
     {% endif %}
   </div>
 
-
   <p class="all-variants" style="visibility: hidden;">
     {% for variant in product.variants %}
     {% if variant.available %}
@@ -198,41 +230,9 @@ Change 'false' to 'true' on the line below, to show them.
     {% endfor %}
   </p>
 
-
-
-{% if collection.previous_product or collection.next_product %}
-<div class="other-products wide-container section-spacing">
-  <div class="other-products__label">{{ 'products.product.other_products' | t }}</div>
-  <div class="other-products__products">
-    {% if collection.previous_product %}
-    <span class="other-products__product previous" data-fill-with-product="{{ collection.previous_product | split: '/' | last }}">
-      <script type="text/template">
-        <a href="{{ collection.previous_product }}" title="[encode:title]">
-          <div class="other-products__product__image"><img src="[img:300x]"></div>
-          <div class="other-products__product__arrow"><span class="arr">{% include 'svg-larrow' %}</span></div>
-          <div class="other-products__product__title h5">{{ 'products.product.previous' | t }}</div>
-        </a>
-      </script>
-    </span>
-    {% endif %}
-    {% if collection.next_product %}
-    <span class="other-products__product next" data-fill-with-product="{{ collection.next_product | split: '/' | last }}">
-      <script type="text/template">
-        <a href="{{ collection.next_product }}" title="[encode:title]">
-          <div class="other-products__product__title h5">{{ 'products.product.next' | t }}</div>
-          <div class="other-products__product__arrow"><span class="arr">{% include 'svg-rarrow' %}</span></div>
-          <div class="other-products__product__image"><img src="[img:300x]"></div>
-        </a>
-      </script>
-    </span>
-    {% endif %}
-  </div>
-</div>
-{% endif %}
-
-{% if section.settings.show_related_products %}
-{% include 'related-products' %}
-{% endif %}
+  {% if section.settings.show_related_products %}
+  {% include 'related-products' %}
+  {% endif %}
 </div>
 
 {% if section.settings.header_background != blank %}
@@ -258,6 +258,7 @@ Change 'false' to 'true' on the line below, to show them.
   }
 </style>
 {% endif %}
+
 
 
 {% schema %}

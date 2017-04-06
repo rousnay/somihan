@@ -1,0 +1,21 @@
+
+<div id="redtextblock" class="product-block{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %} caption-{{ section.settings.coll_captionmode }} layout-right {{ product_class }}" data-loop-index="{{forloop.index}}">
+
+    <div class="redtextblock-top">
+    </div>
+    <div class="redtextblock-bottom">
+      <div class="redtextblock-text">
+      PAIN		<br>
+      PLEASURE	<br>
+      SEDUCE	<br>
+      SUBMIT	<br>
+      ENTHUSE	<br>
+      EXCITE	<br>
+      </div>
+    </div>
+</div>
+
+{% if product_class contains 'quarter' %}
+    {% cycle 'products': '','','','<div class="er"></div>' %}
+
+{% endif %}

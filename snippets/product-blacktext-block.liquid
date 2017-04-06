@@ -1,0 +1,17 @@
+<div id="blacktextblock" class="product-block{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %} caption-{{ section.settings.coll_captionmode }} layout-right {{ product_class }}" data-loop-index="{{forloop.index}}">
+
+    <div class="blacktextblock-content">
+      Fashion is a popular style or practice, especially in clothing, footwear, accessories, makeup, body, or furniture. 
+      Fashion is a distinctive and often constant trend in the style in which a person dresses. 
+      It is the prevailing styles in behaviour and the newest creations of textile designers.
+      Fashion is a popular style or practice, especially in clothing, footwear, accessories, makeup, body, or furniture. 
+      Fashion is a distinctive and often constant trend in the style in which a person dresses. 
+      It is the prevailing styles in behaviour and the newest creations of textile designers.
+    </div>
+</div>
+
+{% if product_class contains 'quarter' %}
+    {% cycle 'products': '','','','<div id="black" class="er"></div>' %}
+    {% cycle 'products': '','','','<div id="black" class="er"></div>' %}
+    {% cycle 'products': '','','','<div id="black" class="er"></div>' %}
+{% endif %}

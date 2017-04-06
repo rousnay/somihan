@@ -1,8 +1,8 @@
 {
   "current": {
-    "col_text": "#6a6561",
-    "col_headings": "#424242",
-    "col_links": "#3f51b5",
+    "col_text": "#151515",
+    "col_headings": "#000000",
+    "col_links": "#ba0c2f",
     "col_mod_bg": "#6699ac",
     "use_mod_bg_op": true,
     "col_content_bg": "#ffffff",
@@ -11,21 +11,21 @@
     "col_head_links_alt": "#fffdfb",
     "col_nav_prim": "#fffdfb",
     "col_nav_sec": "#fffdfb",
-    "col_btn": "#fffdfb",
-    "col_btn_bg": "#0a1634",
+    "col_btn": "#ffffff",
+    "col_btn_bg": "#000000",
     "col_select_bg": "#ffffff",
     "col_select_txt": "#8d8d8d",
-    "prod_label_col": "#3f51b5",
-    "footer_text": "#fffdfb",
-    "footer_background": "#0a1634",
-    "col_page_bg": "#fffdfb",
+    "prod_label_col": "#ba0c2f",
+    "footer_text": "#535353",
+    "footer_background": "#e8e8e8",
+    "col_page_bg": "#ffffff",
     "bg_image": "",
-    "bg_image_method": "fill",
-    "font_fam_base": "GWF|Vollkorn|400",
-    "font_fam_headings": "GWF|Karla|700",
-    "font_fam_nav": "GWF|Cardo|700",
-    "font_fam_logo": "GWF|Work+Sans|600",
-    "font_size_base": "17",
+    "bg_image_method": "repeat top center",
+    "font_fam_base": "GWF|Raleway|400",
+    "font_fam_headings": "Arial, sans-serif",
+    "font_fam_nav": "Arial, sans-serif",
+    "font_fam_logo": "Arial, sans-serif",
+    "font_size_base": "15",
     "font_size_nav": "50",
     "font_size_nav_sub": "25",
     "social_twitter_url": "",
@@ -43,19 +43,19 @@
     "supported_currencies": "GBP CAD USD",
     "default_currency": "GBP",
     "checkout_header_image": "",
-    "checkout_logo_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/somi-logo-black--long_33d952fb-2d3e-4d5b-b7cd-17d160654328.png",
     "checkout_logo_position": "left",
-    "checkout_logo_size": "medium",
+    "checkout_logo_size": "large",
     "checkout_body_background_image": "",
-    "checkout_body_background_color": "#fff",
+    "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
-    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_sidebar_background_color": "#000000",
     "checkout_heading_font": "Helvetica Neue",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#1990C6",
-    "checkout_button_color": "#1990C6",
-    "checkout_error_color": "#ff6d6d",
+    "checkout_accent_color": "#ba0c2f",
+    "checkout_button_color": "#ba0c2f",
+    "checkout_error_color": "#6da1ff",
     "twittercard_handle": "@",
     "nav_horizonal_show_title": true,
     "nav_horizontal_1": "",
@@ -78,24 +78,15 @@
         "settings": {
           "head_fixed": true,
           "show_logo_on_homepage": true,
-          "logo": "",
-          "logo_width": "150",
-          "alt_logo": "",
+          "logo": "shopify:\/\/shop_images\/somi-logo-black--long.png",
+          "logo_width": "220",
+          "alt_logo": "shopify:\/\/shop_images\/somi-logo-black-sqaure_42489163-ebbe-48a0-b363-db3c129ba39d.png",
           "menu_linklist": "main-menu",
           "nav_horizonal_show_title": true,
           "nav_horizontal_1": "",
           "nav_horizontal_2": "",
           "nav_horizontal_3": "",
           "nav_horizontal_4": ""
-        }
-      },
-      "1480517523295": {
-        "type": "instagram",
-        "settings": {
-          "title": "Instagram feed",
-          "account": "",
-          "access_token": "",
-          "row_count": "1"
         }
       },
       "collection-template": {
@@ -105,9 +96,9 @@
           "coll_show_tags": true,
           "coll_show_sort": true,
           "coll_show_feat": false,
-          "coll_layout": "columns",
-          "coll_layout_per_row": "3",
-          "coll_num_prods": "12",
+          "coll_layout": "rows",
+          "coll_layout_per_row": "4",
+          "coll_num_prods": "21",
           "coll_captionmode": "over-hover",
           "coll_infiniscroll": true
         }
@@ -115,7 +106,7 @@
       "1480691271216": {
         "type": "newsletter-signup",
         "settings": {
-          "title": "Newsletter signup",
+          "title": "LAUNCHING APRIL 17",
           "text": "<p>Sign up to our newsletter and we&rsquo;ll keep you up to date with the latest arrivals<\/p>"
         }
       },
@@ -158,80 +149,11 @@
           "show_featured_image": true
         }
       },
-      "1482141870755": {
-        "type": "slideshow",
-        "blocks": {
-          "1482141870755-0": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "heading": "Slideshow",
-              "subheading": "Tell your story with images",
-              "button_text": "",
-              "position": "middle",
-              "text_color": "#ffffff",
-              "link_url": ""
-            }
-          },
-          "1482141870755-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "heading": "Slideshow",
-              "subheading": "Tell your story with images",
-              "button_text": "",
-              "position": "middle",
-              "text_color": "#ffffff",
-              "link_url": ""
-            }
-          }
-        },
-        "block_order": [
-          "1482141870755-0",
-          "1482141870755-1"
-        ],
-        "settings": {
-          "background": "#423e4e"
-        }
-      },
-      "1482141883577": {
-        "type": "featured-products",
-        "settings": {
-          "title": "Featured collection",
-          "collection": "",
-          "coll_layout": "columns",
-          "coll_layout_per_row": "3",
-          "coll_captionmode": "over-hover"
-        }
-      },
-      "1482141922392": {
-        "type": "featured-text",
-        "settings": {
-          "title": "Rich text",
-          "text": "<p>Use this text to share information about your store with your customers.<\/p>\r\n<p>Describe product, share announcements, or welcome customers to your store.<\/p>",
-          "text_color": "#464654",
-          "text_background": "#ffffff"
-        }
-      },
-      "1483454352367": {
-        "type": "text-beside-image",
-        "settings": {
-          "image": "",
-          "layout": "left",
-          "title": "Image with text",
-          "text": "<p>Use this text to share information about your store with your customers.<\/p>\r\n<p>Describe product, share announcements, or welcome customers to your store.<\/p>",
-          "button_text": "",
-          "button_url": "",
-          "text_color": "#464654",
-          "text_background": "#ffffff",
-          "button_background": "#464654"
-        }
-      },
-      "1483454415373": {
+      "1490209169237": {
         "type": "text-over-image",
         "settings": {
-          "image": "",
-          "title": "Image with text overlay",
+          "image": "shopify:\/\/shop_images\/somi_han_london_logo_3329bc71-bc3b-40fc-850f-0ea70f3532ab.png",
+          "title": "",
           "subheading": "",
           "button_text": "",
           "position": "middle",
@@ -241,12 +163,7 @@
       }
     },
     "content_for_index": [
-      "1482141870755",
-      "1482141922392",
-      "1482141883577",
-      "1483454352367",
-      "1483454415373",
-      "1480517523295",
+      "1490209169237",
       "1480691271216"
     ]
   },

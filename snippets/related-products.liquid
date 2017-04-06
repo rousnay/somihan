@@ -1,4 +1,4 @@
-{% assign related_product_count = 3 %}
+{% assign related_product_count = 4 %}
 
 {% assign show_related = false %}
 {% capture related_markup %}
@@ -13,9 +13,12 @@
   {% endfor %}
 {% endif %}
 
-{% assign product_class = 'column third' %}
-
-<h4 class="h1 section-title">{{ 'products.product.related_title' | t }}</h4>
+{% assign product_class = 'column quarter' %}
+<hr style="width:60%;margin:5em auto 5em auto;"/>
+<div class="section-upper-title"> 
+  <h4>BE</h4>
+  <h1>TEMPTED</h1>
+</div>
     
 <div class="wide-container double-gutter">
   <div class="product-list">
