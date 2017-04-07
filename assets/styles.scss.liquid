@@ -1923,7 +1923,7 @@ hr {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 20;
+  z-index: 999;
   background: #ba0c2f;
   background: rgba(186, 12, 47, 0.9);
   /*
@@ -3588,10 +3588,10 @@ display: none;
 }
 
 #site-control {
-  position: absolute;
-  &.fixed {
+/*  &.fixed {
     position: fixed;
-  }
+  }*/
+  position: absolute !important;
 }
 .faux-site-control {
   visibility: hidden;
@@ -3998,7 +3998,7 @@ footer.giftcard-footer {
   }
   // Harry
   .template-collection .site-control {
-    padding-top: 10px;
+    padding-top: 0px;
   }
   
   .product-block.caption-over-hover {
@@ -4145,11 +4145,13 @@ $page-top-padding-mobile: 10px;
   }
 }
 
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 500px) {
   .site-control .logo {
     width: 150px;
   }
-  
+  .hamburger-menu {
+    margin-top: 10px;
+}
   #page-menu .main-nav {
     ul.cols-four > li,
     ul.cols-three > li,
@@ -4788,6 +4790,7 @@ canvas {
 
 #maximage{
   display:none;
+  background-color:#fff;
 }
 canvas {
 position:absolute;
@@ -4795,7 +4798,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:-1;
+z-index:-5;
 }
 
 a.sh-alt-logo img {
@@ -4817,6 +4820,13 @@ span.sh-single-option {
     font-weight: bold;
     color: #ba0c2f;
 }
+
+
+#page-home #shopify-section-footer {
+    bottom: initial;
+    top: 100vh!important;
+}
+
 /* START Holiday home page */
 
 #page-somi-han-london-discover-premium-atelier-series-0001 {
@@ -4879,6 +4889,20 @@ body.template-product .product-detail__form__action {
 }
 }
 
+
+@media screen and (max-width: 500px) {
+
+
+.sh-footer-right, .sh-footer-left {
+  float: initial;
+    text-align: center;
+    clear: both;
+}
+.template-product #page-content, .template-collection #page-content {
+    padding-bottom: 66px !important;
+}
+
+}
 /* END Holiday home page */
 
 
@@ -5055,7 +5079,7 @@ body.template-product .product-detail__form__action {
 }
 
 
-.template-collection #page-content {
+/*.template-collection #page-content {
 
   top: -105px;
   right: 0px;
@@ -5063,12 +5087,24 @@ body.template-product .product-detail__form__action {
   position: relative;
   padding: 0px 0px 0px 0px;
   z-index: 5;
-}
+}*/
 
 
-.template-collection #shopify-section-footer {
+/*.template-collection #shopify-section-footer {
   margin-top: -105px;  
+}*/
+
+div#shopify-section-header {
+    position: absolute;
+    width: 100%;
 }
+
+.template-product #page-content, .template-collection #page-content{
+    padding: 0!important;
+    padding-bottom: 38px!important;
+}
+
+
 
 // Red Text Block
 #redtextblock {

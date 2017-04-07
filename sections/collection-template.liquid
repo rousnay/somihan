@@ -1,5 +1,5 @@
 <div data-section-type="collection-template">
-  {% paginate collection.products by section.settings.coll_num_prods %}
+
   
   {% comment %} - Harry
   <div class="central">
@@ -95,25 +95,6 @@
   </div>
 
 
-  {% comment %}
-
-  Infinite scroll option:
-
-  By default, more products will load in once you scroll to the bottom of the page.
-
-  Change 'false' to 'true' on the line below to prevent this from happening, and instead show a button at the bottom of the page.
-  Clicking this button will load in the next batch of products.
-
-  {% endcomment %}
-  {% assign show_scroll_button = false %}
-
-  {% if paginate.pages > 1 %}
-  <div class="pagination central content {% if section.settings.coll_infiniscroll %}infiniscroll{% if show_scroll_button %} wait-for-trigger{% endif %}{% endif %}  {% unless section.settings.coll_content_bg_show %}transparent{% endunless %}">
-    {{ paginate | default_pagination }}
-  </div>
-  {% endif %}
-
-  {% endpaginate %}
 </div>
 
 

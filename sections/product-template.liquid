@@ -69,7 +69,16 @@ Change 'false' to 'true' on the line below, to show them.
         </div>
         {%endif%}
         {% endfor %}
-        
+
+{% comment %}        {% if product.variants.size == 1 %}   
+        <span class="sh-single-option">
+          {% for variant in product.variants %}               
+          {{variant.option1 | replace: '"',''  | split: '\' | last}}               
+          {% endfor %}
+        </span>
+        {% endif %}{% endcomment %}
+
+
       </div>
     </div>
 
