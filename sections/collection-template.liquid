@@ -64,7 +64,7 @@
   {% unless collection.products.size > 0 %}<p class="align-centre"><em>{{ 'collections.general.no_matches' | t }}</em></p>{% endunless %}
 
   <div class="wide-container double-gutter">
-    <div class="product-list  sh-product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row }}{% endif %}">
+    <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row }}{% endif %}">
       
       {% if section.settings.coll_layout == 'rows' %}
         {% if section.settings.coll_layout_per_row == "2" %}
@@ -89,12 +89,7 @@
         {% endif %}
       
       	{% include 'product-block' %}
-
-<b style="display: none;"> test {{forloop.index}} </b>
-
       
-
-
       {% endfor %}
     </div>
   </div>
