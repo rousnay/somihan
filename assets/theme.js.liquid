@@ -1443,47 +1443,10 @@ jQuery(function($){
   theme.Sections.register('cart-template', theme.CartTemplateSection);
 });
 
-// ======================= Harry Jacobs ==========================
 
-
-function resizecollection(){
-
-  var d_product = $('.product-block.caption-over-hover.column.quarter');
-  var redtextblock = $('#redtextblock');
-  var blacktextblock = $('#blacktextblock');
-  var videoblock = $('#videoblock');
-
-  redtextblock.height(d_product.height());
-  blacktextblock.height(d_product.height());
-  videoblock.height(d_product.height());
-
-}
-
-function toggle(divId) {
- $('.expandable-item').toggle();
-}
-
-$(window).resize(function() {
-
-  resizecollection();
-
-});
-$(window).load(function() {
-  jQuery('.toggle-nav').click(function(e) {
-    jQuery(this).toggleClass('active');
-    jQuery('.hamburger-menu ul').toggleClass('active');
-
-    e.preventDefault();
-  });
-
-  resizecollection();
-});
-
-// ======================= Harry Jacobs ==========================
-
-//**************
-// By Rousnay
-//**************
+//*****************************
+// By Mozahidur Rahman Rousnay
+//*****************************
 
 jQuery.browser = {};
 (function () {
@@ -1496,7 +1459,12 @@ jQuery.browser = {};
 })();
 
 
+  /******************************
+   After page ready
+   ******************************/
 $(document).ready(function(){
+
+// owlCarousel
   var owl = jQuery('.owl-carousel');
   owl.owlCarousel({
     items : 5,
@@ -1525,99 +1493,8 @@ $(document).ready(function(){
     }
   });
 
-});
 
-
-function top_adjustment() {
-
-  $('.owl-carousel.owl-loaded').css("display","block");
-
-  var sliderHeight = 0;
-  var sliderHalfHeight = 0;
-  var containerHeight = 0;
-  var sliderPosition = 0;
-  var sliderTop = 0;
-
-  sliderHeight =  $('.owl-carousel .owl-item:first img').height();
-
-  sliderHalfHeight = sliderHeight/3;
-
-  containerHeight = $( window ).height();
-
-  sliderPosition = (containerHeight/2) - sliderHalfHeight;
-
-  sliderTop = parseInt(sliderPosition, 10);
-
-  $('.owl-carousel').css("top",sliderTop);
-
-// console.log(sliderPosition);
-
-}
-
-$( window ).load(function() {
- top_adjustment();
-});
-
-$( window ).resize(function() {
-  top_adjustment();
-});
-
-
-
-  /******************************
-   Sidebar Push Slide
-   ******************************/
-  //  function sideHeaderInit() {
-  //   var sideheader = jQuery('#sideheader');
-  //   if (sideheader.length) {
-  //     sideheader.perfectScrollbar();
-  //     //sideheader.hide();
-  //     jQuery('.sideheader-trigger a').on('click', function(event) {
-  //       event.preventDefault();
-  //       event.stopPropagation();
-
-  //       if ($(sideheader).is('.is-visible')) {
-  //         $(sideheader).removeClass('is-visible');
-  //         sideheader.hide(900);
-  //       }
-  //       else{
-  //         $(sideheader).addClass('is-visible');
-  //         sideheader.show();
-  //       }
-
-
-  //       jQuery('body').toggleClass('sideheader-visible');
-  //     });
-
-  //     jQuery(document).on('click', function(e) {
-
-  //       var _element = sideheader;
-
-  //       if (!_element.is(e.target) // if the target of the click isn't the container...
-  //         && _element.has(e.target).length === 0 ) // ... nor a descendant of the container
-  //       {
-  //         sideheader.removeClass('is-visible');
-  //         sideheader.hide(900);
-  //         jQuery('body').removeClass('sideheader-visible');
-  //       }
-  //     });
-
-  //     jQuery(window).on('scroll', function(e) {
-  //       sideheader.removeClass('is-visible');
-  //       sideheader.hide(900);
-  //       jQuery('body').removeClass('sideheader-visible');
-  //     });
-  //   };
-  // }
-  // /* Calls Sideheader Init script  */
-  // sideHeaderInit();
-
-
-  /******************************
-   After page ready
-   ******************************/
-
-   $(document).ready(function() {
+//Variant PRoduct settings
 
     $('.sh-product-details .description b').each(function(i, obj) {
 
@@ -1635,28 +1512,14 @@ $( window ).resize(function() {
       return this.split(target).join(replacement);
     };
 
-    //varStr = varStr.replaceAll(' / ', ':');
-
     varStr = varStr.replace(/ +/g, ' ');
-
     varStr = varStr.slice(1, -2);
-
     var obj = {};
     varStr.split(', ').forEach(function (a) {
       var values = a.split(' / '),
       key = values.shift();
       obj[key] = (obj[key] || []).concat(values);
     });
-
-    // var obj = varStr.split(',').reduce((a, b) => { // split the string on comma
-    //     var parts = b.trim().split(':'); // split the parts on colon
-    //     if (!(parts[0] in a)) a[parts[0]] = []; // if no key, create an array
-    //     a[parts[0]].push(parts[1]); // push the value to the array
-    //     return a; // return the object for next iteration
-    // }, {})
-
-    // console.log(obj);
-
 
     $.expr[":"].contains = $.expr.createPseudo(function(arg) {
       return function(elem) {
@@ -1670,7 +1533,6 @@ $( window ).resize(function() {
     $('#clickyboxes-option-size li').hide();
     $('.sh-product-details .description').hide();
     $('.sh-product-details .description').eq(0).show();
-
 
     for (var i = 0, len = obj[Object.keys(obj)[0]].length; i < len; i++) {
       $('#clickyboxes-option-size li a:contains(' + obj[Object.keys(obj)[0]][i] + ')').show();
@@ -1697,29 +1559,21 @@ $( window ).resize(function() {
 
       $('#clickyboxes-option-size li a').hide();
       $('#clickyboxes-option-size li').hide();
-
       $('#clickyboxes-option-color li a').hide();
-
       $('.sh-product-details .description').hide();
 
       for (var i = 0, len = activeArr.length; i < len; i++) {
        $('#clickyboxes-option-size li a:contains(' + activeArr[i] + ')').show();
        $('#clickyboxes-option-size li a:contains(' + activeArr[i] + ')').parent().show();
-
        $('#clickyboxes-option-color li a:contains(' + activeArr[i] + ')').show();
-
      }
-
      var textHolding = $('.description b:contains("' + itemText + '")');
-
      $(textHolding).parent().show();
-
    });
 
 
-    /******************************
-     Glitch
-     ******************************/
+
+     //Glitch
 
     // setTimeout(function() {
 
@@ -1893,9 +1747,83 @@ $( window ).resize(function() {
 
     // }, 4000);
 
-  });
 
-//Preloader
+
+
+
+
+
+
+
+});// (document).ready END
+
+
+
+function top_adjustment() {
+
+  $('.owl-carousel.owl-loaded').css("display","block");
+
+  var sliderHeight = 0;
+  var sliderHalfHeight = 0;
+  var containerHeight = 0;
+  var sliderPosition = 0;
+  var sliderTop = 0;
+
+  sliderHeight =  $('.owl-carousel .owl-item:first img').height();
+  sliderHalfHeight = sliderHeight/3;
+  containerHeight = $( window ).height();
+  sliderPosition = (containerHeight/2) - sliderHalfHeight;
+  sliderTop = parseInt(sliderPosition, 10);
+  $('.owl-carousel').css("top",sliderTop);
+// console.log(sliderPosition);
+}
+
+$( window ).load(function() {
+ top_adjustment();
+});
+
+$( window ).resize(function() {
+  top_adjustment();
+});
+
+
+
+// ======================= Harry Jacobs ==========================
+
+
+function resizecollection(){
+
+  var d_product = $('.product-block.caption-over-hover.column.quarter');
+  var redtextblock = $('#redtextblock');
+  var blacktextblock = $('#blacktextblock');
+  var videoblock = $('#videoblock');
+
+  redtextblock.height(d_product.height());
+  blacktextblock.height(d_product.height());
+  videoblock.height(d_product.height());
+
+}
+
+function toggle(divId) {
+ $('.expandable-item').toggle();
+}
+
+$(window).resize(function() {
+  resizecollection();
+});
+$(window).load(function() {
+  jQuery('.toggle-nav').click(function(e) {
+    jQuery(this).toggleClass('active');
+    jQuery('.hamburger-menu ul').toggleClass('active');
+    e.preventDefault();
+  });
+  resizecollection();
+});
+
+// ======================= Harry Jacobs ==========================
+
+
+// Preloader
 $(window).on('load', function() { // makes sure the whole site is loaded 
   $('#status').fadeOut(); // will first fade out the loading animation 
   $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
