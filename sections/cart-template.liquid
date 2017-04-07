@@ -1,5 +1,5 @@
 <div class="central content" data-section-type="cart-template">
-  <h1>{{ 'cart.general.title' | t }}</h1>
+  <h1 class="feature-header">{{ 'cart.general.title' | t }}</h1>
   
   {% if cart.item_count > 0 %}
   
@@ -26,7 +26,7 @@
           <div class="text">
             <div class="title">
               <a href="{{ item.url }}">
-                {{ item.product.title }}<br/>
+                <span class="sh-cart-title">{{ item.product.title }}</span><br/>
                 {% unless item.variant.title contains 'Default' %}{{ item.variant.title }}{% endunless %}
               </a>
             </div>
