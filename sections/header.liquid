@@ -80,7 +80,11 @@
             <a href="{{ childlink.url }}">
               <div>
                 {{ childlink.title | escape }}</div>
-                <div class="menu-subtitle">SPRING2017</div>
+                  {% if forloop.index == 1 %}
+                  <div class="menu-subtitle">FEMALE ATTIRE</div>
+                  {% elsif forloop.index == 2 %}
+                  <div class="menu-subtitle">SHOES & ACCESSORIES</div>
+                  {% endif %}
               </a>
             </li>
             {% endfor %}
@@ -117,7 +121,11 @@
               <a href="{{ childlink.url }}">
                 <div>
                   {{ childlink.title | escape }}</div>
-                  <div class="menu-subtitle">SPRING2017</div>
+                  {% if forloop.index == 1 %}
+                  <div class="menu-subtitle">FEMALE ATTIRE</div>
+                  {% elsif forloop.index == 2 %}
+                  <div class="menu-subtitle">SHOES & ACCESSORIES</div>
+                  {% endif %}
                 </a>
                 {% endfor %}
               </div>
@@ -161,7 +169,7 @@
           <div class="container growth-area">
             <div class="nav main-nav">
 
-              {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_1 asdfasdf%}
+              {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_1 %}
               {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_2 %}
               {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_3 %}
               {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_4 %}

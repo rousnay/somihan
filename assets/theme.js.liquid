@@ -1467,13 +1467,13 @@ $(document).ready(function(){
 // owlCarousel
   var owl = jQuery('.owl-carousel');
   owl.owlCarousel({
-    items : 5,
     loop  : true,
     lazyLoad: true,
     autoplay:true,
     animateOut:'fadeOut',
     autoplayTimeout:3000,
     autoplayHoverPause:true,
+    responsiveClass:true,
     responsive:{
       0:{
         items:2

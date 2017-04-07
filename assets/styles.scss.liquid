@@ -1474,6 +1474,10 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold!important;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -2764,12 +2768,21 @@ $quantity-adjuster-width: 30px;
 .update-continue {
   margin: 1em 0;
   text-align: center;
+  text-transform: uppercase;
   input {
     text-transform: uppercase;
     vertical-align: baseline;
+    &:hover{
+      color: #ba0c2f;
+    }
   }
   span {
     margin: 0 0.2em;
+  }
+  a{
+    &:hover{
+      color: #ba0c2f;
+    }
   }
 }
 
@@ -2800,7 +2813,11 @@ $quantity-adjuster-width: 30px;
   margin: 1.4em 0;
   width: 100%;
 }
-
+.subtotal .label, .subtotal .amount {
+    text-transform: uppercase;
+    font-weight: bold;
+    // font-size: 1.375em;
+}
 .additional-checkout-buttons input[type=image] {
   width: auto;
   height: auto;
@@ -3832,7 +3849,7 @@ div#shopify-section-footer {
     position: absolute;
     width: 100%;
     bottom: 0;
-    z-index: 999;
+    z-index: 55;
 }
 .page-footer {
   color: #fff;
@@ -4657,9 +4674,9 @@ box-shadow: -2px 14px 23px 1px rgba(0,0,0,0.33);
     padding: initial;
     z-index: initial;
 }
-  #shopify-section-footer {
-    display: none;
-}
+//   #shopify-section-footer {
+//     display: none;
+// }
 
 }
 
@@ -4948,7 +4965,7 @@ body.template-product .product-detail__form__action {
     display:none !important;
 }
 
-.active {
+.hamburger-menu ul.active {
   display: none;
 }
  
