@@ -2484,7 +2484,7 @@ $quantity-adjuster-width: 30px;
     //.quantity-wrapper,
     .option-selectors {
       float: none;
-      text-align: center;
+      text-align: left;
       margin: 0 auto 20px;
     }
     .option-selectors {
@@ -4670,7 +4670,7 @@ box-shadow: -2px 14px 23px 1px rgba(0,0,0,0.33);
 
 //custom styles
 
-#page-home{
+.template-index{
   #page-content {
     position: initial;
     padding: initial;
@@ -4771,7 +4771,7 @@ filter: contrast(100%) grayscale(0%);
 
 /*Glitch */
 
-body#page-home{
+body.template-index{
     background: url(//cdn.shopify.com/s/files/1/1841/9099/t/8/assets/background3-lowres_1920x.jpg?1084372397632068734) no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
@@ -4781,7 +4781,7 @@ body#page-home{
 }
 
 body{
-  &:not(#page-home){
+  &:not(.template-index){
 canvas {
     display: none;
 }
@@ -4822,43 +4822,14 @@ span.sh-single-option {
 }
 
 
-#page-home #shopify-section-footer {
+/*.template-index #shopify-section-footer {
     bottom: initial;
     top: 100vh!important;
-}
+}*/
 
 /* START Holiday home page */
 
-#page-somi-han-london-discover-premium-atelier-series-0001 {
-    background: #fff;
-    .header-overlap-section{
-    padding: 150px 50px;
-}
-  form p {
-    text-align: center;
-}
 
-#shopify-section-header, 
- #shopify-section-footer {
-    display: none;
-}
-
-  
-.text-over-image {
-    position: relative;
-    text-align: center;
-
-    img {
-    max-width: 450px;
-    width: 100%;
-}
-}
-
-.section-spacing {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-}
   .sh-product-details {
     width: 50%;
 }
@@ -4879,11 +4850,7 @@ body.template-product .product-detail__form__action {
     padding-right: 15px;
 }
   
-#page-somi-han-london-discover-premium-atelier-series-0001 {
-    .header-overlap-section{
-    padding: 60px 50px;
-  }
-}
+
 .section-upper-title h1, .section-upper-title .section-title {
     font-size: 3em!important;
 }
@@ -4903,8 +4870,15 @@ body.template-product .product-detail__form__action {
 }
 
 }
-/* END Holiday home page */
 
+@media screen and (max-width: 410px) {
+
+.product-block.caption-over-hover .title-info, .caption-over-hover.collection-block .title-info {
+    width: 70%;
+    padding: 10px 10px;
+  }
+
+}
 
 /* =================== Harry Jacobs Start ============ */
 
@@ -5011,7 +4985,7 @@ body.template-product .product-detail__form__action {
         position: absolute;
         display: inline-block;
         right: 10px;
-        margin-top: 18px;
+        margin-top: 10px;
     }
  
     .hamburger-menu ul.active {
