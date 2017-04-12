@@ -87,6 +87,7 @@
       gridType: {{ settings.collection_products_grid | json }}
     };
   </script>
+  <script src="//load.sumome.com/" data-sumo-site-id="a82fbb20e631cb2a8c05d5945af0cc4fda23889338b6c3718156be2f35df3b6c" async="async"></script>
 </head>
 
 <body id="page-{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template contains 'customers' %} template-customer-area{% endif %}{% if logo_html contains 'img' %} has-logo{% endif %}" >

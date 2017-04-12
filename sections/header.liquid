@@ -69,7 +69,7 @@
           {% for link in linklists.main-menu.links %}
           {% assign child_list_handle = link.title | handleize %}
           {% if linklists[child_list_handle].links != blank %}
-          <li>
+          <li class="sh-first-link">
             <a href="#" class="dropbtn" onclick="toggle('expandable-menu')">
               {{ link.title }}
             </a>
@@ -81,9 +81,9 @@
               <div>
                 {{ childlink.title | escape }}</div>
                   {% if forloop.index == 1 %}
-                  <div class="menu-subtitle">FEMALE ATTIRE</div>
+                  <div class="menu-subtitle">SERIES 0001 \ WANTING</div>
                   {% elsif forloop.index == 2 %}
-                  <div class="menu-subtitle">SHOES & ACCESSORIES</div>
+                  <div class="menu-subtitle">SERIES 0001 \ NEEDING</div>
                   {% endif %}
               </a>
             </li>
@@ -122,9 +122,9 @@
                 <div>
                   {{ childlink.title | escape }}</div>
                   {% if forloop.index == 1 %}
-                  <div class="menu-subtitle">FEMALE ATTIRE</div>
+                  <div class="menu-subtitle">SERIES 0001 \ WANTING</div>
                   {% elsif forloop.index == 2 %}
-                  <div class="menu-subtitle">SHOES & ACCESSORIES</div>
+                  <div class="menu-subtitle">SERIES 0001 \ NEEDING</div>
                   {% endif %}
                 </a>
                 {% endfor %}
