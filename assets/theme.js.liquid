@@ -1494,7 +1494,30 @@ owl.owlCarousel({
 });
 
 
-//Variant PRoduct settings
+
+  /******************************
+   bPopup Options
+   ******************************/
+
+$(document).on('click', '.size-guide', (function(e) {
+
+ console.log("size-guide!");
+       // Prevents the default action to be triggered. 
+        e.preventDefault();
+
+        //Triggering bPopup when click event is fired
+        $('#sh-size-guide').bPopup({
+          modalClose: false,
+          positionStyle: 'fixed',
+          Speed: 1500,
+          modalColor: '#ba0c2f',
+          opacity: 0.75,
+          closeClass: 'popup-close',
+
+        });
+}));
+
+//Variant Product settings
 
 $('.sh-product-details .description b').each(function(i, obj) {
 
@@ -1505,6 +1528,9 @@ $('.sh-product-details .description b').each(function(i, obj) {
 });
 
 $('.sh-product-details').prepend( "<b>DESCRIPTION</b>" );
+
+
+$('.product-detail .has-clickyboxes label[for="option-size"]').prepend( '<div class="size-guide">-view size guide</div>' );
 
 var varStr = $('.all-variants').text();
 varStr = varStr.replace(/(\r\n|\n|\r)/gm, "");
@@ -1768,12 +1794,25 @@ function top_adjustment() {
 // console.log(sliderPosition);
 }
 
+function popup_height() {
+  var winHeight = 0;
+  winHeight = $( window ).height();
+  popupHeight = winHeight - 60;
+  popupHeight = parseInt(popupHeight, 10);
+  $('#sh-size-guide').height( popupHeight );
+
+console.log(popupHeight);
+}
+
+
 $( window ).load(function() {
 	top_adjustment();
+  popup_height();
 });
 
 $( window ).resize(function() {
 	top_adjustment();
+  popup_height();
 });
 
 
@@ -1817,3 +1856,7 @@ $(window).on('load', function() { // makes sure the whole site is loaded
   $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
   $('body').delay(350).css({'overflow':'visible'});
 })
+
+
+
+
