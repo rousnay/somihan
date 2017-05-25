@@ -1494,6 +1494,13 @@ owl.owlCarousel({
 });
 
 
+var randomElements = jQuery(".sm-related .quarter").get().sort(function(){ 
+  return Math.round(Math.random())-0.5
+}).slice(0,4);
+
+$(randomElements).css("display","block");
+
+
 
   /******************************
    bPopup Options

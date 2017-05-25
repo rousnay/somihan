@@ -1,4 +1,4 @@
-{% assign related_product_count = 4 %}
+{% assign related_product_count = 99 %}
 
 {% assign show_related = false %}
 {% capture related_markup %}
@@ -21,7 +21,7 @@
 </div>
     
 <div class="wide-container double-gutter">
-  <div class="product-list">
+  <div class="product-list sm-related">
     {% assign product_limit_plus_one = related_product_count | plus: 1 %}
     {% assign product_iter = 1 %}
     {% for related_product in product_collection.products limit: product_limit_plus_one %}
@@ -31,6 +31,39 @@
     {% assign product_iter = product_iter | plus: 1 %}
     {% endif %}
     {% endfor %}
+
+{% comment %}    {% assign product_limit_plus_one = related_product_count | plus: 1 %}
+    {% assign product_iter = 1 %}
+    {% for related_product in product_collection.products offset:index limit:4 %}
+    {% if product.handle != related_product.handle and product_iter < product_limit_plus_one %}
+    {% include 'product-block' with related_product, product: related_product, collection: product_collection %}
+    {% assign show_related = true %}
+    {% assign product_iter = product_iter | plus: 1 %}
+    {% endif %}
+    {% endfor %}{% endcomment %}
+
+
+
+{% comment %}<div id="showcase">
+{% if collections.frontpage.products.size > 0 %}
+
+{% capture index %}{{ 'now' | date: '%S' | times: collections.frontpage.products.size | divided_by: 60 }}{% endcapture %}
+{% for product in collections.frontpage.products offset:index limit:1 %}
+
+
+  {% endfor %}
+{% else %}
+  <p>
+    <a href="/admin/custom_collections">
+      Add a product to the "frontpage" collection to see it here...
+    </a>
+  </p>
+{% endif %}
+</div>{% endcomment %}
+
+
+
+
   </div>
 </div>
 
