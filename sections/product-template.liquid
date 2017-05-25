@@ -66,6 +66,10 @@ Change 'false' to 'true' on the line below, to show them.
             {% endfor %}
           </select> 
           <div class="{{ value | escape }}"></div>
+          <div class="test">
+            {% if product.price_varies %}{{ product.price_min | money }}-{{ product.price_max | money }}{% else %}{{ price }}{% endif %}
+
+          </div>
         </div>
         {%endif%}
         {% endfor %}
@@ -126,7 +130,7 @@ Change 'false' to 'true' on the line below, to show them.
               {% if option != 'Title' %}
               {% assign opt_idx = 'option' | append: forloop.index %}
 
-              <span class="sh-single-item">{{ option }}</span><br/> <span class="sh-single-option">{{ product.variants.first[opt_idx] }}</span><br/><br/>
+              <span class="sh-single-item">{{ option }}</span><br/> <span class="sh-single-option">{{ product.variants.first[opt_idx] }}</span><span class="item-price">{{ variant.price  | money }}</span><br/><br/>
 
               {% endif %}
 
@@ -238,6 +242,10 @@ Change 'false' to 'true' on the line below, to show them.
     {% endif %}
     {% endfor %}
   </p>
+
+
+<p class="all-price"  style="visibility: hidden;">{% for variant in product.variants %}{{ variant.price | money_without_currency }} {% endfor %}</p>
+
 
   {% if section.settings.show_related_products %}
   {% include 'related-products' %}

@@ -1544,16 +1544,16 @@ varStr = varStr.replace(/(\r\n|\n|\r)/gm, "");
 String.prototype.replaceAll = function(target, replacement) {
 	return this.split(target).join(replacement);
 };
-
 varStr = varStr.replace(/ +/g, ' ');
 varStr = varStr.slice(1, -2);
+// console.log(varStr);
 var obj = {};
 varStr.split(', ').forEach(function (a) {
 	var values = a.split(' / '),
 	key = values.shift();
 	obj[key] = (obj[key] || []).concat(values);
 });
-
+// console.log(obj);
 $.expr[":"].contains = $.expr.createPseudo(function(arg) {
 	return function(elem) {
 		return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
@@ -1604,8 +1604,28 @@ $(optItem).click(function(event) {
 	$(textHolding).parent().show();
 });
 
-//IS HOME_PAGE
 
+//show the varient prices next to item titles
+var itemList = $('#clickyboxes-option-item li');
+itemList.each(function(i, val){
+        $(this).addClass('item-price-'+i);
+});
+
+var allPrice = $('.all-price').text();
+allPrice = allPrice.slice(0, -1);
+priceArr = allPrice.split(' ');
+priceArr = priceArr.filter(function(elem, index, self) {
+    return index == self.indexOf(elem);
+})
+
+priceArr.forEach(function(val, i){
+        $('.item-price-'+i ).append('<span class="item-price">£'+val+'</span>');
+});
+
+$( ".single-option span.item-price:eq( 1 )" ).hide();
+
+
+//IS HOME_PAGE
 if($('body').is('.template-index')){
      //Glitch
      setTimeout(function() {
