@@ -1875,15 +1875,17 @@ $(window).load(function() {
 	resizecollection();
 });
 
-// ======================= Harry Jacobs ==========================
+// ======================= Harry Jacobs END ==========================
+
+
+
+// Randomized video in collection page
+var randNumb = Math.floor(Math.random() * 4) + 1;
+$("#collection-video").prepend("<source src='https://cdn.shopify.com/s/files/1/1841/9099/t/11/assets/collection_vid_"+randNumb+".mp4' type='video/mp4'>");
 
 // Preloader
 $(window).on('load', function() { // makes sure the whole site is loaded 
   $('#status').fadeOut(); // will first fade out the loading animation 
   $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
   $('body').delay(350).css({'overflow':'visible'});
-})
-
-
-
-
+});
